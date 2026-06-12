@@ -103,26 +103,21 @@ header{position:sticky;top:0;z-index:90;background:rgba(247,243,238,.9);backdrop
 .id-type b{font-family:'Poppins';font-weight:800;font-size:30px}
 .id-type span{font-size:15px;color:var(--ink-soft)}
 /* phase 2 presence */
-.pr-stage{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;padding-top:2px}
-.mini-site{background:#fff;border:1px solid var(--rule-soft);border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(13,27,42,.08)}
-.mini-bar{display:flex;gap:4px;padding:7px 9px;border-bottom:1px solid var(--rule-soft)}
-.mini-bar i{width:7px;height:7px;border-radius:50%;background:var(--rule)}
-.mini-body{padding:11px}
-.sk{height:9px;border-radius:4px;background:var(--sand);margin-bottom:7px;transform-origin:left;transform:scaleX(0)}
-.ph.on .sk{animation:grow .5s forwards}
-.ph.on .sk:nth-child(1){animation-delay:.25s;width:55%}
-.ph.on .sk:nth-child(2){animation-delay:.4s;width:85%}
-.ph.on .sk:nth-child(3){animation-delay:.55s;width:72%}
-.sk.btnsk{background:var(--coral);width:42%;height:18px;border-radius:6px}
-.ph.on .sk.btnsk{animation-delay:.75s}
-@keyframes grow{to{transform:scaleX(1)}}
-.mini-ig{background:#fff;border:1px solid var(--rule-soft);border-radius:10px;padding:10px;box-shadow:0 8px 20px rgba(13,27,42,.08);display:flex;flex-direction:column;gap:8px}
-.ig-head{display:flex;align-items:center;gap:7px}
-.ig-head i{width:18px;height:18px;border-radius:50%;background:var(--coral)}
-.ig-head .sk2{height:7px;width:50px;border-radius:4px;background:var(--sand)}
-.ig-img{flex-grow:1;border-radius:7px;background:linear-gradient(135deg,var(--coral) 0%,#FF8A5B 100%);opacity:0;transform:scale(.92)}
-.ph.on .ig-img{animation:pop .45s .6s forwards}
-.ig-likes{height:7px;width:70%;border-radius:4px;background:var(--sand)}
+.pr-stage{display:flex;flex-direction:column;gap:7px;padding-top:4px}
+.pr-ch{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--rule-soft);border-radius:11px;padding:10px 13px;box-shadow:0 4px 14px rgba(13,27,42,.06);opacity:0;transform:translateX(-18px)}
+.ph.on .pr-ch{animation:prchin .45s forwards cubic-bezier(.2,1,.3,1)}
+.ph.on .pr-ch:nth-child(1){animation-delay:.15s}
+.ph.on .pr-ch:nth-child(2){animation-delay:.45s}
+.ph.on .pr-ch:nth-child(3){animation-delay:.75s}
+@keyframes prchin{to{opacity:1;transform:none}}
+.pr-ch-icon{flex-shrink:0;width:32px;height:32px;border-radius:9px;display:grid;place-items:center}
+.pr-ch-icon svg{width:16px;height:16px;color:#fff}
+.pr-ch-info{flex-grow:1;min-width:0}
+.pr-ch-name{font-family:'Poppins';font-weight:600;font-size:13px;display:block;margin-bottom:5px;color:var(--ink)}
+.pr-ch-skel{height:6px;border-radius:3px;background:var(--sand);width:70%}
+.pr-live{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;font-family:'Poppins';color:var(--green);flex-shrink:0}
+.pr-live-pip{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink-pr 1.8s ease-in-out infinite}
+@keyframes blink-pr{0%,100%{opacity:1}50%{opacity:.2}}
 /* phase 3 funnel notifications */
 .fn-stage{display:flex;flex-direction:column;gap:9px;padding-top:6px}
 .noti{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--rule-soft);border-radius:13px;padding:11px 13px;box-shadow:0 10px 24px rgba(13,27,42,.1);opacity:0;transform:translateX(40px)}
@@ -267,9 +262,9 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
 .final .btn-line:hover{border-color:#fff}
 .final .micro{margin-top:16px;font-size:13px;opacity:.85}
 
-.wordmark{padding:50px 0 0;overflow:hidden;text-align:center;line-height:.8}
-.wordmark span{font-family:'Poppins';font-weight:800;font-size:clamp(72px,20vw,260px);letter-spacing:-.04em;display:inline-block;background:linear-gradient(180deg,var(--ink),transparent 145%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.9}
-.wordmark .cake{background:linear-gradient(180deg,var(--coral),transparent 150%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.wordmark{background:#0A1622;padding:50px 0 0;overflow:hidden;text-align:center;line-height:.8}
+.wordmark span{font-family:'Poppins';font-weight:800;font-size:clamp(72px,20vw,260px);letter-spacing:-.04em;display:inline-block;background:linear-gradient(180deg,#F7F3EE,transparent 145%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.9}
+.wordmark .cake{background:linear-gradient(180deg,#FF6A6A,transparent 150%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 footer{padding:34px 0;background:#0A1622;color:var(--cream-on-ink);border-top:1px solid rgba(247,243,238,.08)}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
@@ -340,19 +335,23 @@ footer{padding:34px 0;background:#0A1622;color:var(--cream-on-ink);border-top:1p
             </div>
             <div class="ph-cap">First, who you are.</div>
           </div>
-          <!-- PHASE 2: website + social build -->
+          <!-- PHASE 2: channel presence -->
           <div class="ph" data-ph="1">
             <div class="pr-stage">
-              <div class="mini-site">
-                <div class="mini-bar"><i></i><i></i><i></i></div>
-                <div class="mini-body">
-                  <div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk btnsk"></div>
-                </div>
+              <div class="pr-ch">
+                <div class="pr-ch-icon" style="background:#0D1B2A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg></div>
+                <div class="pr-ch-info"><span class="pr-ch-name">Website</span><div class="pr-ch-skel"></div></div>
+                <span class="pr-live"><span class="pr-live-pip"></span>Live</span>
               </div>
-              <div class="mini-ig">
-                <div class="ig-head"><i></i><span class="sk2"></span></div>
-                <div class="ig-img"></div>
-                <div class="ig-likes"></div>
+              <div class="pr-ch">
+                <div class="pr-ch-icon" style="background:#E1306C"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></div>
+                <div class="pr-ch-info"><span class="pr-ch-name">Instagram</span><div class="pr-ch-skel" style="width:55%"></div></div>
+                <span class="pr-live"><span class="pr-live-pip" style="animation-delay:.6s"></span>Live</span>
+              </div>
+              <div class="pr-ch">
+                <div class="pr-ch-icon" style="background:#4285F4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+                <div class="pr-ch-info"><span class="pr-ch-name">Google</span><div class="pr-ch-skel" style="width:65%"></div></div>
+                <span class="pr-live"><span class="pr-live-pip" style="animation-delay:1.2s"></span>Live</span>
               </div>
             </div>
             <div class="ph-cap">Then, where they find you.</div>
