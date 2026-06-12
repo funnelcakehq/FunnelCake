@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FunnelCake — Digital Growth Partner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── DARK MODE (default) ── */
+    :root,
+    [data-theme="dark"] {
+      --bg:             #0D1B2D;
+      --bg-card:        #111E30;
+      --bg-mid:         #162235;
+      --bg-hover:       #1C2D42;
+      --coral:          #F04E37;
+      --coral-dark:     #D4422E;
+      --cream:          #F5EDE8;
+      --text:           #E4ECF6;
+      --text-muted:     #8A9AB0;
+      --text-dim:       #4A5C72;
+      --border:         rgba(255,255,255,0.07);
+      --border-light:   rgba(255,255,255,0.12);
+      --nav-bg:         rgba(13, 27, 45, 0.92);
+      --ph-bg:          #14253A;
+      --ph-border:      rgba(255,255,255,0.10);
+      --funnel-bg:      #14253A;
+    }
+
+    /* ── LIGHT MODE ── */
+    [data-theme="light"] {
+      --bg:             #F8F5F0;
+      --bg-card:        #FFFFFF;
+      --bg-mid:         #F0EBE4;
+      --bg-hover:       #E8E2DA;
+      --coral:          #F04E37;
+      --coral-dark:     #D4422E;
+      --cream:          #F5EDE8;
+      --text:           #0D1B2D;
+      --text-muted:     #3D5068;
+      --text-dim:       #8A9AB0;
+      --border:         rgba(13, 27, 45, 0.08);
+      --border-light:   rgba(13, 27, 45, 0.14);
+      --nav-bg:         rgba(248, 245, 240, 0.94);
+      --ph-bg:          #EDE7DF;
+      --ph-border:      rgba(13, 27, 45, 0.12);
+      --funnel-bg:      #EDE7DF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.25s;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 7px;
+      object-fit: cover;
+    }
+
+    .wordmark {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .wordmark span { color: var(--coral); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* Theme toggle */
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s, border-color 0.18s;
+      flex-shrink: 0;
+      color: var(--text-muted);
+    }
+
+    .theme-toggle:hover {
+      background: var(--bg-hover);
+      color: var(--text);
+    }
+
+    .theme-toggle svg { display: block; }
+
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+
+    [data-theme="light"] .icon-sun  { display: block; }
+    [data-theme="light"] .icon-moon { display: none; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.18s, opacity 0.18s;
+      white-space: nowrap;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .btn-coral:hover { background: var(--coral-dark); }
+
+    .btn-lg {
+      padding: 14px 28px;
+      font-size: 15px;
+      border-radius: 10px;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-outline:hover {
+      color: var(--text);
+      border-color: var(--border-light);
+      background: var(--bg-hover);
+    }
+
+
+    /* ── SHARED ── */
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 16px;
+    }
+
+    .section-headline {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 580px;
+    }
+
+    .section-header { margin-bottom: 60px; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    section { padding: 96px 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 0 96px;
+      border-bottom: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 52% 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 14px 5px 10px;
+      background: rgba(240, 78, 55, 0.10);
+      border: 1px solid rgba(240, 78, 55, 0.22);
+      border-radius: 100px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--coral);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .hero-headline {
+      font-size: clamp(42px, 5.4vw, 68px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline .accent { color: var(--coral); }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 40px;
+      max-width: 460px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    .hero-ghost-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.18s;
+    }
+
+    .hero-ghost-link:hover { color: var(--text); }
+
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+    }
+
+    .trust-sep {
+      width: 3px;
+      height: 3px;
+      background: var(--text-dim);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+
+    /* ── FUNNEL VISUAL ── */
+    .funnel-diagram {
+      background: var(--funnel-bg);
+      border: 1.5px solid var(--ph-border);
+      border-radius: 16px;
+      padding: 32px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .funnel-inputs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .fi-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 5px 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+    }
+
+    .funnel-shape-wrap {
+      width: 100%;
+      max-width: 220px;
+    }
+
+    .funnel-shape-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .funnel-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+      text-align: center;
+      margin-top: -2px;
+    }
+
+    .funnel-label span { color: var(--coral); }
+
+    .funnel-arrow {
+      width: 1.5px;
+      height: 20px;
+      background: var(--border-light);
+      margin: 6px 0;
+    }
+
+    .funnel-output {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 16px 24px;
+      text-align: center;
+      width: 100%;
+      max-width: 240px;
+    }
+
+    .fo-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 6px;
+    }
+
+    .fo-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .fo-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .funnel-cherry {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+
+    /* ── PROBLEM ── */
+    .problem-content { max-width: 680px; }
+
+    .problem-body {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .problem-body p { margin-bottom: 16px; }
+    .problem-body p:last-child { margin-bottom: 0; }
+
+    .problem-body .punch {
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 56px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--coral);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-dim);
+      max-width: 150px;
+      line-height: 1.5;
+    }
+
+
+    /* ── HOW IT WORKS ── */
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: var(--border);
+      gap: 1px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 52px;
+    }
+
+    .system-card {
+      background: var(--bg);
+      padding: 36px 32px;
+      transition: background 0.18s;
+    }
+
+    .system-card:hover { background: var(--bg-hover); }
+
+    .sys-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--coral);
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+
+    .sys-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+    }
+
+    .sys-subtitle {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .sys-body {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-cta { text-align: center; }
+
+
+    /* ── RESULTS ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px 26px;
+    }
+
+    .result-tag {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    .result-stat {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--coral);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .result-stat-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+
+    .result-body {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .testimonials-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .tq {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .ta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ta-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--ph-bg);
+      border: 1px dashed var(--ph-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    .ta-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .ta-role {
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+
+
+    /* ── WHO IT'S FOR ── */
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .icp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .icp-card {
+      padding: 22px 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .icp-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .icp-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .not-fit {
+      padding: 20px 22px;
+      background: rgba(240, 78, 55, 0.05);
+      border: 1px solid rgba(240, 78, 55, 0.14);
+      border-radius: 10px;
+    }
+
+    .not-fit-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .not-fit-body {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .for-right .section-headline { margin-bottom: 18px; }
+    .for-right .section-sub { margin-bottom: 32px; }
+
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: var(--bg-mid); }
+
+    .final-cta-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .final-cta .section-headline {
+      font-size: clamp(32px, 4.2vw, 52px);
+      margin-bottom: 16px;
+    }
+
+    .fcta-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .fcta-note {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .cta-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .text-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border-light);
+      cursor: pointer;
+      transition: color 0.18s;
+    }
+
+    .text-link:hover { color: var(--text); }
+
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 44px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-copy {
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .footer-links a:hover { color: var(--text-muted); }
+
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      section { padding: 72px 0; }
+      .hero { padding: 72px 0 64px; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .system-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: 1fr; }
+      .testimonials-row { grid-template-columns: 1fr; }
+
+      .for-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .for-right { order: -1; }
+    }
+
+    @media (max-width: 620px) {
+      .nav-links { display: none; }
+      .hero-headline { font-size: 38px; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .stat-row { gap: 28px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img src="brand_assets/funnelcake logo.jpeg" alt="FunnelCake" class="logo-img">
+          <div class="wordmark">funnel<span>cake</span></div>
+        </a>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#who-its-for">Who it's for</a></li>
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <!-- Moon (shown in dark mode) -->
+            <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <!-- Sun (shown in light mode) -->
+            <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+          <a href="#book" class="btn btn-coral">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="hero-left">
+          <div class="hero-eyebrow-pill">
+            <span class="dot"></span>
+            4 spots available this quarter
+          </div>
+
+          <h1 class="hero-headline">
+            Leads come in.<br>
+            Most go quiet.<br>
+            <span class="accent">We fix that.</span>
+          </h1>
+
+          <p class="hero-sub">
+            We build the website, lead capture, automations, and ads that turn interest into paying clients — and keep it all running without you having to babysit it.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#book" class="btn btn-coral btn-lg">Book a free 20-min call</a>
+            <a href="#how-it-works" class="hero-ghost-link">See how it works &rarr;</a>
+          </div>
+
+          <div class="trust-strip">
+            <span class="trust-item">4 new clients per quarter</span>
+            <span class="trust-sep"></span>
+            <span class="trust-item">100% done-for-you</span>
+            <span class="trust-sep"></span>
+            <span class="trust-item">First results in 60 days</span>
+          </div>
+        </div>
+
+        <!-- Funnel Visual -->
+        <div class="hero-visual">
+          <div class="funnel-diagram">
+
+            <div class="funnel-inputs">
+              <span class="fi-tag">DMs</span>
+              <span class="fi-tag">Website visits</span>
+              <span class="fi-tag">Referrals</span>
+            </div>
+
+            <div class="funnel-shape-wrap">
+              <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+                <!-- Funnel body -->
+                <polygon points="10,0 190,0 130,100 70,100" fill="#F04E37" opacity="0.90"/>
+                <!-- Funnel neck -->
+                <rect x="70" y="100" width="60" height="48" fill="#D4422E" opacity="0.90" rx="0"/>
+                <!-- FunnelCake label inside -->
+                <text x="100" y="52" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="800" fill="white" letter-spacing="-0.3">funnelcake</text>
+              </svg>
+            </div>
+
+            <div class="funnel-arrow"></div>
+
+            <div class="funnel-output">
+              <div class="fo-label">Output</div>
+              <div class="fo-main">Paying Clients</div>
+              <div class="fo-sub">Booked calls. Closed deals.</div>
+            </div>
+
+            <div class="funnel-cherry">🍒</div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── PROBLEM ── -->
+  <section id="problem">
+    <div class="container">
+      <div class="problem-content">
+        <div class="eyebrow">The real problem</div>
+        <h2 class="section-headline">You're not losing clients<br>because of a bad product.</h2>
+
+        <div class="problem-body">
+          <p>Someone finds you. They like what they see. They DM you or fill your form. You're busy. You reply three hours later. They've already moved on.</p>
+          <p>That's not a you problem — it's a systems problem. Nobody built the part that closes the gap between "interested" and "booked."</p>
+          <p class="punch">That's exactly what we build.</p>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-item">
+            <div class="stat-num">9+</div>
+            <div class="stat-label">Disconnected tools the average business uses for marketing</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3 hrs</div>
+            <div class="stat-label">Average response gap that costs you warm leads</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Of those tools talk to each other by default</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── HOW IT WORKS ── -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">How it works</div>
+        <h2 class="section-headline">Six things. One build.<br>Nothing left for you to figure out.</h2>
+        <p class="section-sub">Every client gets all six, built in the right order and handed over fully running.</p>
+      </div>
+
+      <div class="system-grid">
+
+        <div class="system-card">
+          <div class="sys-num">01</div>
+          <div class="sys-title">Brand Foundation</div>
+          <div class="sys-subtitle">First, we nail who you are.</div>
+          <div class="sys-body">What you stand for, who you're talking to, how you sound. We lock this down before we build anything else — because everything else comes from it. Already have a brand? We work from it.</div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-num">02</div>
+          <div class="sys-title">Website</div>
+          <div class="sys-subtitle">A site that actually does something.</div>
+          <div class="sys-body">Not ten pages with pretty pictures. One clear site built around a single goal: getting you the enquiry. Fast to load, easy to understand, built for the person who knows nothing about what you do yet.</div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-num">03</div>
+          <div class="sys-title">Lead Capture</div>
+          <div class="sys-subtitle">"Contact us" is not a system.</div>
+          <div class="sys-body">Forms, booking links, and landing pages — all connected, all feeding into your CRM. If someone misses the first step, they automatically get a follow-up. No lead falls through the cracks.</div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-num">04</div>
+          <div class="sys-title">CRM Setup</div>
+          <div class="sys-subtitle">A dashboard your team will actually use.</div>
+          <div class="sys-body">We set up a simple view of every lead, where they are, and what to do next. No complicated software, no training needed. Just a clear picture of your pipeline every morning.</div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-num">05</div>
+          <div class="sys-title">Automations</div>
+          <div class="sys-subtitle">Follow-ups that run without you.</div>
+          <div class="sys-body">Welcome messages, reminders, re-engagement nudges — all triggered automatically based on what someone does. You approve the logic once. After that, you'll forget it's running until you see the bookings.</div>
+        </div>
+
+        <div class="system-card">
+          <div class="sys-num">06</div>
+          <div class="sys-title">Paid Ads</div>
+          <div class="sys-subtitle">Ads connected to the whole system.</div>
+          <div class="sys-body">Meta, Google, or both. Every ad is tied into your lead capture and CRM — so a click doesn't just bring traffic, it starts a journey. Nothing goes to a dead page.</div>
+        </div>
+
+      </div>
+
+      <div class="section-cta">
+        <a href="#book" class="btn btn-coral btn-lg">Book a 20-min call</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── RESULTS ── -->
+  <section id="results">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Results</div>
+        <h2 class="section-headline">What happens after<br>the system goes live.</h2>
+        <p class="section-sub">First 90 days across three clients. Replace with verified numbers before launch.</p>
+      </div>
+
+      <div class="results-grid">
+
+        <div class="result-card">
+          <div class="result-tag">Fitness Coach &middot; Bangalore</div>
+          <div class="result-stat">34%</div>
+          <div class="result-stat-desc">Lead-to-consult rate, up from 11%</div>
+          <div class="result-body">
+            &#8377;35K/month in ads. No follow-up after the DM. We added a landing page and a 6-email sequence. Same spend, three times the calls booked. Took 60 days.
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-tag">D2C Skincare Brand</div>
+          <div class="result-stat">&#8377;2.1L</div>
+          <div class="result-stat-desc">Email revenue in first 45 days, up from &#8377;0</div>
+          <div class="result-body">
+            800+ lead magnet downloads going to a dead Linktree. We moved them to a real funnel with a 7-email sequence. The list did the rest.
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-tag">Business Coach &middot; Mumbai</div>
+          <div class="result-stat">2.3&times;</div>
+          <div class="result-stat-desc">Retainer revenue growth in 3 months</div>
+          <div class="result-body">
+            Referral-only, zero digital presence. We built the brand, site, and lead funnel from scratch. 40+ inbound leads and 11 new clients closed in three months.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="testimonials-row">
+
+        <div class="testimonial-card">
+          <div class="tq">"I booked 6 discovery calls in the first week it went live. I hadn't touched anything."</div>
+          <div class="ta">
+            <div class="ta-avatar">PH</div>
+            <div class="ta-info">
+              <div class="ta-name">[Client Name] — replace with real</div>
+              <div class="ta-role">[Business type] &middot; [City]</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="tq">"I kept waiting for something to break. Nothing did."</div>
+          <div class="ta">
+            <div class="ta-avatar">PH</div>
+            <div class="ta-info">
+              <div class="ta-name">[Client Name] — replace with real</div>
+              <div class="ta-role">[Business type] &middot; [City]</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-cta">
+        <a href="#book" class="btn btn-coral btn-lg">Book your free 20-min audit</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── WHO IT'S FOR ── -->
+  <section id="who-its-for">
+    <div class="container">
+      <div class="for-grid">
+
+        <div class="for-left">
+          <div class="icp-list">
+            <div class="icp-card">
+              <div class="icp-title">Business owners doing ₹3L–20L/month</div>
+              <div class="icp-desc">Things are working but marketing still needs you in the room. You're the bottleneck. You shouldn't be.</div>
+            </div>
+            <div class="icp-card">
+              <div class="icp-title">Coaches and consultants</div>
+              <div class="icp-desc">You're great at what you do and slow at following up. You've tried the content calendar. You need the engine behind it.</div>
+            </div>
+            <div class="icp-card">
+              <div class="icp-title">D2C and wellness brands</div>
+              <div class="icp-desc">Your product converts. You just have no automated way to bring past customers back or turn website traffic into a list that pays.</div>
+            </div>
+          </div>
+          <div class="not-fit">
+            <div class="not-fit-label">Not a fit</div>
+            <div class="not-fit-body">If you're pre-revenue, come back when you have traction. We build on momentum — nothing to build on means nothing to wire together.</div>
+          </div>
+        </div>
+
+        <div class="for-right">
+          <div class="eyebrow">Who it's for</div>
+          <h2 class="section-headline">Not for everyone.<br>Here's who it<br>actually fits.</h2>
+          <p class="section-sub">You're doing real revenue and tired of marketing feeling like a second full-time job.</p>
+          <br><br>
+          <a href="#book" class="btn btn-coral btn-lg">Not sure you qualify? Let's find out.</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta" id="book">
+    <div class="container">
+      <div class="final-cta-inner">
+        <div class="eyebrow">Book a call</div>
+        <h2 class="section-headline">4 spots left<br>this quarter.</h2>
+        <p class="fcta-sub">It starts with a free 20-minute call. If we're the right fit, you'll have a clear plan within 48 hours.</p>
+        <p class="fcta-note">We work with a small number of clients at a time so the work is actually good. We don't do logo-only projects or social media posting. It's always the full build — a piece of the system isn't the system.</p>
+        <div class="cta-group">
+          <a href="#" class="btn btn-coral btn-lg">Book the 20-min call</a>
+          <a href="mailto:hello@funnelcake.in" class="text-link">Have a question first? Write to us.</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="wordmark">funnel<span>cake</span></div>
+          <div class="footer-copy">&copy; 2025 FunnelCake. All rights reserved.</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#who-its-for">Who it's for</a></li>
+          <li><a href="#book">Book a call</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('fc-theme', html.dataset.theme);
+    }
+
+    (function () {
+      const saved = localStorage.getItem('fc-theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    })();
+  </script>
+
+</body>
+</html>
