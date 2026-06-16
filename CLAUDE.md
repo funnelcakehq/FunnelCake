@@ -71,3 +71,57 @@ credentials.json, token.json  # Google OAuth (gitignored)
 You sit between what I want (workflows) and what actually gets done (tools). Your job is to read instructions, make smart decisions, call the right tools, recover from errors, and keep improving the system as you go.
 
 Stay pragmatic. Stay reliable. Keep learning.
+
+---
+
+## Website: Work / Case Studies Section
+
+### File structure
+
+```
+assets/site.css              # Shared CSS (tokens, reset, nav, buttons, wordmark, footer, .rv reveal)
+work/index.html              # Work index — card grid of all projects
+work/_template.html          # Mold for new case studies — copy this, never edit it
+work/<client-slug>.html      # One file per case study, e.g. work/sri-radhika-jewellers.html
+assets/work/<slug>-hero.jpg  # Full-width project image (1600×800px)
+assets/work/<slug>-og.jpg    # OG image for social sharing
+```
+
+Filenames: lowercase, hyphenated, no spaces. Example: `sri-radhika-jewellers`.
+
+### How to add a new case study
+
+1. Copy `work/_template.html` to `work/<client-slug>.html`
+2. Replace every `[SWAP: ...]` token with real content
+3. Add the project image to `assets/work/<slug>-hero.jpg` and replace the placeholder `<div>` with `<img>`
+4. Add a card to `work/index.html` (copy an existing card block, update slug, tags, name, sector, outcome, link)
+5. Update the JSON-LD `datePublished` field
+6. Commit and push
+
+### Case study sections (in order)
+
+| Section | What goes here |
+|---|---|
+| Snapshot | Client name, sector, city, one-line outcome, services, timeline, year |
+| Hero image | Full-width 2:1 project photo |
+| The situation | What was broken or missing before FunnelCake. Specific, not vague. |
+| What we built | Bulleted list of concrete deliverables |
+| What changed | Up to 4 stat tiles + qualitative context |
+| Quote | Client's own words — specific, not generic |
+| CTA | Fixed: "Book a free audit" + "See more work" |
+
+### Hard rules for copy
+
+- Never promise or imply sales or revenue growth. Leads, enquiries, bookings, visibility, and time saved are fine.
+- No em dashes. No AI-sounding filler. Plain, direct, human English.
+- Result tiles: never say "revenue up" or "sales increased" — use "enquiries", "bookings", "time saved", "ranking", "followers".
+- Quotes must be the client's actual words. If unverified, mark `[SWAP: get quote from client]`.
+- If a number hasn't been confirmed, use `[SWAP: verify with client]` — never invent metrics.
+
+### Design tokens (from site.css)
+
+All work pages link `/assets/site.css`. They inherit all tokens, nav, buttons, wordmark, footer, and `.rv` reveal. Page-specific styles go in a `<style>` block in the page `<head>`.
+
+### Shared CSS rule
+
+Never add token definitions, nav styles, button styles, wordmark styles, footer styles, or `.rv` to a work page's inline `<style>`. Those live exclusively in `assets/site.css`. Page-specific styles only.

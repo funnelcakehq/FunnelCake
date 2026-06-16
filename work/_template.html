@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>[SWAP: Client Name] | FunnelCake</title>
+  <meta name="description" content="[SWAP: 1-2 sentence summary of what FunnelCake built for this client and the key outcome.]">
+  <meta property="og:title" content="[SWAP: Client Name] | FunnelCake">
+  <meta property="og:description" content="[SWAP: Same as meta description]">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://funnelcake.in/work/[SWAP: client-slug]">
+  <meta property="og:image" content="https://funnelcake.in/assets/work/[SWAP: client-slug]-og.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <style>
+    /* ===== CASE STUDY ===== */
+    .cs-snapshot{background:var(--ink);color:#fff;padding:72px 0 56px}
+    .cs-snapshot .label{color:var(--coral)}
+    .cs-client{font-size:clamp(40px,6vw,76px);font-weight:800;margin:12px 0 20px;line-height:1.02;letter-spacing:-.04em}
+    .cs-outcome{font-size:clamp(17px,1.8vw,21px);color:var(--cream-on-ink);max-width:640px;line-height:1.55}
+    .cs-meta{display:flex;flex-wrap:wrap;gap:32px;margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1)}
+    .cs-meta-item{}
+    .cs-meta-label{font-family:'Poppins';font-weight:700;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);display:block;margin-bottom:5px}
+    .cs-meta-value{color:var(--cream-on-ink);font-weight:500;font-size:15px}
+
+    .cs-hero-img{width:100%;aspect-ratio:2/1;object-fit:cover;display:block;background:var(--sand)}
+    .cs-hero-placeholder{width:100%;aspect-ratio:2/1;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--ink-soft);font-family:'Poppins'}
+
+    .cs-body{max-width:720px;margin:0 auto;padding:0 24px 0}
+
+    .cs-section{padding:52px 0 0}
+    .cs-section h2{font-size:clamp(24px,3.2vw,36px);font-weight:800;margin-bottom:18px}
+    .cs-section p{color:var(--ink-soft);line-height:1.72;margin-bottom:14px}
+    .cs-section p:last-child{margin-bottom:0}
+
+    .cs-list{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:10px}
+    .cs-list li{padding-left:22px;position:relative;color:var(--ink-soft);line-height:1.6;font-size:15.5px}
+    .cs-list li::before{content:'';position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+
+    .cs-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin:28px 0 0}
+    .cs-result{background:var(--green-tint);border-radius:12px;padding:20px 18px;border-left:3px solid var(--green)}
+    .cs-result .num{font-family:'Poppins';font-size:30px;font-weight:800;color:var(--green);line-height:1;display:block}
+    .cs-result .desc{font-size:13px;color:var(--ink-soft);margin-top:5px;line-height:1.4}
+
+    .cs-quote{background:var(--sand);border-radius:16px;padding:32px 36px;margin:40px 0 0}
+    .cs-quote blockquote{font-size:18px;line-height:1.65;color:var(--ink);font-style:italic;margin-bottom:18px}
+    .cs-quote cite{font-style:normal;font-weight:600;font-size:13.5px;color:var(--ink-soft)}
+
+    .cs-next{padding:60px 0 80px;text-align:center}
+    .cs-next h2{font-size:clamp(24px,3.2vw,36px);font-weight:800;margin-bottom:10px}
+    .cs-next p{color:var(--ink-soft);margin-bottom:28px}
+    .cs-next .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    .divider{height:1px;background:var(--rule-soft);margin:0 0 0}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "[SWAP: Client Name] — FunnelCake Case Study",
+    "description": "[SWAP: Same as meta description]",
+    "url": "https://funnelcake.in/work/[SWAP: client-slug]",
+    "author": {
+      "@type": "Organization",
+      "name": "FunnelCake",
+      "url": "https://funnelcake.in"
+    },
+    "datePublished": "[SWAP: YYYY-MM-DD]",
+    "about": {
+      "@type": "Organization",
+      "name": "[SWAP: Client Name]",
+      "description": "[SWAP: One line about the client's business]"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="/"><span class="brand-mark" role="img" aria-label="FunnelCake logo"></span>funnel<em>cake</em></a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/#system">What we build</a>
+      <a href="/work/" aria-current="page">Work</a>
+      <a href="/#proof">Testimonials</a>
+      <a href="/#process">How it works</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-coral" href="mailto:hello@funnelcake.in">Get a free audit</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- SNAPSHOT / HERO -->
+  <section class="cs-snapshot">
+    <div class="wrap">
+      <p class="label">[SWAP: Sector] · [SWAP: City, India]</p>
+      <h1 class="cs-client">[SWAP: Client Name]</h1>
+      <p class="cs-outcome">[SWAP: One punchy outcome sentence. Example: "Enquiries up 3x in 90 days after a full brand and website overhaul."]</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Services</span>
+          <span class="cs-meta-value">[SWAP: Brand / Website / Social / Ads / Automation]</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <span class="cs-meta-value">[SWAP: e.g. 6 weeks]</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Year</span>
+          <span class="cs-meta-value">[SWAP: e.g. 2025]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT IMAGE -->
+  <!-- SWAP: replace this div with an <img> once you have the asset -->
+  <div class="cs-hero-placeholder">
+    [SWAP: full-width project image — recommended 1600×800px, saved as /assets/work/[client-slug]-hero.jpg]
+  </div>
+
+  <div class="cs-body">
+
+    <!-- THE SITUATION -->
+    <section class="cs-section rv" aria-labelledby="cs-h-situation">
+      <h2 id="cs-h-situation">The situation</h2>
+      <p>[SWAP: Describe the client's problem before FunnelCake. What was broken, missing, or costing them? Be specific — vague problems make weak case studies. Example: "They had a 7-year-old website built on a free template. No Google presence. Instagram hadn't been posted to in four months. Walk-ins came from word of mouth and that had started to slow."]</p>
+      <p>[SWAP: Second paragraph if needed — add any relevant context about their sector or competitive pressure.]</p>
+    </section>
+
+    <!-- WHAT WE BUILT -->
+    <section class="cs-section rv" aria-labelledby="cs-h-built">
+      <h2 id="cs-h-built">What we built</h2>
+      <p>[SWAP: Brief intro sentence before the list.]</p>
+      <ul class="cs-list">
+        <li>[SWAP: Specific deliverable. Example: "New brand identity — wordmark, colour palette, and type system."]</li>
+        <li>[SWAP: Specific deliverable. Example: "Custom website on Webflow with local SEO baked in from day one."]</li>
+        <li>[SWAP: Specific deliverable. Example: "Instagram content system — 12 templates, a monthly shoot brief, and a posting schedule."]</li>
+        <li>[SWAP: Specific deliverable. Example: "Google Business Profile optimised and verified — photos, hours, services, and review prompts set up."]</li>
+        <!-- SWAP: add or remove bullets as needed -->
+      </ul>
+    </section>
+
+    <!-- WHAT CHANGED -->
+    <section class="cs-section rv" aria-labelledby="cs-h-changed">
+      <h2 id="cs-h-changed">What changed</h2>
+      <p>[SWAP: One sentence framing the results — e.g. "Within 90 days of launch, the numbers had shifted."]</p>
+      <div class="cs-results">
+        <div class="cs-result">
+          <span class="num">[SWAP: e.g. 3x]</span>
+          <span class="desc">[SWAP: e.g. enquiries per month]</span>
+        </div>
+        <div class="cs-result">
+          <span class="num">[SWAP: e.g. +180]</span>
+          <span class="desc">[SWAP: e.g. Instagram followers in 60 days]</span>
+        </div>
+        <div class="cs-result">
+          <span class="num">[SWAP: e.g. #1]</span>
+          <span class="desc">[SWAP: e.g. Google ranking for "[keyword] [city]"]</span>
+        </div>
+        <!-- SWAP: add or remove result tiles as needed. Max 4 looks best. -->
+      </div>
+      <p style="margin-top:20px">[SWAP: Any additional context on the results — qualitative wins, what the client says shifted in day-to-day experience, etc. Never promise or imply revenue growth.]</p>
+    </section>
+
+    <!-- QUOTE -->
+    <figure class="cs-quote rv">
+      <blockquote>
+        "[SWAP: Client quote in their own words. Aim for something specific, not generic. Example: 'We used to rely entirely on walk-ins. Now people are finding us on Google and messaging on Instagram before they even step in.']"
+      </blockquote>
+      <figcaption>
+        <cite>[SWAP: Name], [SWAP: Role/Owner], [SWAP: Client Name]</cite>
+      </figcaption>
+    </figure>
+
+  </div><!-- /cs-body -->
+
+  <div class="divider"></div>
+
+  <!-- NEXT STEP CTA -->
+  <section class="cs-next">
+    <h2>Want results like this?</h2>
+    <p>Book a free 15-point audit. We'll show you exactly where your business is losing visibility and enquiries.</p>
+    <div class="cta-row">
+      <a class="btn btn-coral" href="mailto:hello@funnelcake.in">Book a free audit</a>
+      <a class="btn btn-line" href="/work/">See more work</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- WORDMARK -->
+<div class="wordmark" aria-hidden="true"><span>funnel<span class="cake">cake</span></span></div>
+
+<footer>
+  <div class="wrap foot">
+    <small>© 2026 FunnelCake · Digital Growth Partners</small>
+    <nav aria-label="Footer">
+      <a href="/#proof">Testimonials</a>
+      <a href="/#faq">FAQ</a>
+      <!-- SWAP: real links -->
+      <a href="#" rel="noopener">Instagram</a>
+      <a href="#" rel="noopener">LinkedIn</a>
+      <a href="mailto:hello@funnelcake.in">hello@funnelcake.in</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
