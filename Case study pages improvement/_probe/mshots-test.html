@@ -1,0 +1,18 @@
+<!DOCTYPE html><html><head><style>body{margin:0;background:#111;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px}img{width:100%;display:block;background:#333}</style></head><body>
+<img id="a" crossorigin="anonymous" src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ffunnelcake.in%2F?w=1280">
+<img id="b" crossorigin="anonymous" src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.metamorphix.in%2F?w=1280">
+<img id="c" crossorigin="anonymous" src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fayurvedacompass.de%2F?w=1280">
+<img id="d" crossorigin="anonymous" src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ftaooftouch.earth%2F?w=1280">
+<script>
+// mshots returns a "generating" placeholder first; re-bust the cache a few times
+let tries = 0;
+const t = setInterval(() => {
+  tries++;
+  document.querySelectorAll('img').forEach(im => {
+    const base = im.src.split('&r=')[0];
+    im.src = base + '&r=' + Date.now();
+  });
+  if (tries > 5) clearInterval(t);
+}, 4000);
+</script>
+</body></html>

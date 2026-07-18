@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><style>body{margin:0;background:#FF00FF;overflow:hidden;height:100vh}img{display:block}</style></head><body>
+<img id="v" crossorigin="anonymous">
+<script>
+const M = u => 'https://s0.wp.com/mshots/v1/' + encodeURIComponent(u);
+window.SHOTS = {
+  'wl-desktop':  [M('https://whitelotusyogacenter.org/') + '?w=1280&vpw=1280&vph=800', 1280, 800],
+  'wl-mobile':   [M('https://whitelotusyogacenter.org/') + '?w=390&vpw=390&vph=844', 390, 844],
+  'mx-desktop':  [M('https://www.metamorphix.in/') + '?w=1280&vpw=1280&vph=800', 1280, 800],
+  'mx-mobile':   [M('https://www.metamorphix.in/') + '?w=390&vpw=390&vph=844', 390, 844],
+  'ac-desktop':  [M('https://ayurvedacompass.de/') + '?w=1280&vpw=1280&vph=800', 1280, 800],
+  'ac-mobile':   [M('https://ayurvedacompass.de/') + '?w=390&vpw=390&vph=844', 390, 844],
+  'tot-desktop': [M('https://taooftouch.earth/') + '?w=1280&vpw=1280&vph=800', 1280, 800],
+  'tot-mobile':  [M('https://taooftouch.earth/') + '?w=390&vpw=390&vph=844', 390, 844],
+  're-desktop':  [M('https://k5y.689.myftpupload.com/') + '?w=1280&vpw=1280&vph=800', 1280, 800],
+  're-mobile':   [M('https://k5y.689.myftpupload.com/') + '?w=390&vpw=390&vph=844', 390, 844],
+};
+window.showTile = (k, tx, ty) => new Promise(res => {
+  const [u, w, h] = window.SHOTS[k];
+  const v = document.getElementById('v');
+  v.style.width = w + 'px'; v.style.height = h + 'px';
+  v.style.marginLeft = (-tx) + 'px'; v.style.marginTop = (-ty) + 'px';
+  if (v.src === u && v.complete) { res(k); return; }
+  v.onload = () => res(k); v.onerror = () => res('ERR:' + k);
+  v.src = u;
+});
+</script>
+</body></html>
