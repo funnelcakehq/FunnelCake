@@ -8,7 +8,7 @@
 <meta property="og:title" content="FunnelCake | Your business, on autopilot">
 <meta property="og:description" content="Brand, website, content and follow-ups, built as one system. Yours to keep.">
 <meta property="og:type" content="website">
-<!-- SWAP: set canonical + og:url to live domain -->
+<meta property="og:url" content="https://funnelcake.in/">
 <link rel="canonical" href="https://funnelcake.in/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -107,7 +107,6 @@
 .clients .wrap{display:flex;align-items:center;gap:10px 28px;flex-wrap:wrap;justify-content:center}
 .clients .lead-in{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
 .clients .name{font-family:'Poppins';font-weight:600;font-size:15px;opacity:.5}
-/* SWAP: replace names with client logos when collected */
 
 /* ===== SECTIONS ===== */
 section{padding:92px 0}
@@ -169,7 +168,6 @@ section{padding:92px 0}
 .proof .avatar{width:38px;height:38px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-family:'Poppins';font-weight:700;color:var(--coral-deep);font-size:14px}
 .proof .who b{font-family:'Poppins';font-size:14px;display:block;font-weight:600}
 .proof .who span{font-size:12.5px;color:var(--ink-soft)}
-/* SWAP: replace all three placeholder testimonials with real client quotes */
 
 /* comparison table */
 .compare-scroller{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -206,7 +204,6 @@ table.compare{width:100%;border-collapse:collapse;min-width:660px}
 .team h2{color:var(--paper)}
 .team-row{display:flex;justify-content:center;gap:46px;flex-wrap:wrap;margin-top:6px}
 .member .face{width:86px;height:86px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:'Poppins';font-weight:700;font-size:29px;margin:0 auto 13px}
-/* SWAP: replace initials with real photos */
 .member h3{font-size:17.5px;font-weight:600}
 .member p{font-size:13px;color:var(--cream-on-ink);margin-top:2px}
 .team-tail{margin-top:32px;font-size:15.5px;color:var(--cream-on-ink)}
@@ -231,6 +228,31 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
 .final .btn-line:hover{border-color:#fff}
 .final .micro{margin-top:16px;font-size:13px;opacity:.85}
 
+/* ===== CASE STUDY CAROUSEL ===== */
+.cases{background:var(--paper)}
+.cases-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.cases-bar .all{font-family:'Poppins';font-weight:600;font-size:14px;color:var(--coral);text-decoration:none;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.cases-bar .all:hover{color:var(--coral-deep)}
+.cases-bar .all svg{width:15px;height:15px}
+.cs-nav{display:flex;gap:9px}
+.cs-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--rule);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .15s,transform .15s}
+.cs-arrow:hover{border-color:var(--ink);transform:translateY(-1px)}
+.cs-arrow svg{width:19px;height:19px}
+.cs-carousel{position:relative}
+.cs-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:4px 0 8px;scrollbar-width:none}
+.cs-track::-webkit-scrollbar{display:none}
+.cs-slide{scroll-snap-align:start;flex:0 0 auto;width:min(370px,84vw)}
+.cs-c{background:#fff;border:1px solid var(--rule-soft);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);box-shadow:0 4px 18px rgba(13,27,42,.06);transition:transform .2s,box-shadow .2s}
+.cs-c:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(13,27,42,.1)}
+.cs-c-img{aspect-ratio:16/10;overflow:hidden;background:var(--sand)}
+.cs-c-img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.cs-c:hover .cs-c-img img{transform:scale(1.04)}
+.cs-c-body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:9px;flex-grow:1}
+.cs-c-tag{align-self:flex-start;font-family:'Poppins';font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--sand);color:var(--ink);border-radius:100px;padding:4px 11px}
+.cs-c-body h3{font-family:'Poppins';font-size:19px;font-weight:700;line-height:1.2}
+.cs-c-body p{font-size:14px;color:var(--ink-soft);flex-grow:1}
+.cs-c-go{font-family:'Poppins';font-weight:600;font-size:13.5px;color:var(--coral);display:inline-flex;align-items:center;gap:6px;transition:gap .15s}
+.cs-c:hover .cs-c-go{gap:10px}
 </style>
 </head>
 <body>
@@ -333,13 +355,14 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
 </section>
 
 <!-- CLIENTS -->
-<!-- SWAP: replace names with logos when collected; confirm permission per client -->
 <div class="clients">
   <div class="wrap">
     <span class="lead-in">Systems built for</span>
+    <span class="name">White Lotus Yoga Center</span>
     <span class="name">Sri Radhika Jewellers</span>
-    <span class="name">Tao of Touch</span>
+    <span class="name">Metamorphix India</span>
     <span class="name">Ayurveda Compass</span>
+    <span class="name">Tao of Touch</span>
   </div>
 </div>
 
@@ -412,6 +435,54 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
   </div>
 </section>
 
+<!-- CASE STUDIES -->
+<section class="cases" id="work-preview">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:24px">
+      <span class="label rv">Recent work</span>
+      <h2 class="rv">Real systems, already running.</h2>
+      <p class="after rv">A jeweller in Delhi, a Pilates studio in Sharjah, a coach between Germany and India. Different businesses, one connected system each.</p>
+    </div>
+    <div class="cases-bar rv">
+      <a class="all" href="/work/">View all work
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <div class="cs-nav">
+        <button class="cs-arrow" data-dir="-1" aria-label="Previous work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="cs-arrow" data-dir="1" aria-label="Next work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="cs-carousel rv">
+      <div class="cs-track" id="csTrack">
+        <div class="cs-slide"><a class="cs-c" href="/work/white-lotus.html">
+          <div class="cs-c-img"><img src="/work/assets/wl-hero2.jpg" alt="White Lotus Yoga Center website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Pilates &amp; wellness</span><h3>White Lotus Yoga Center</h3><p>Their entire online presence, run by us, plus a booking system in build.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+        <div class="cs-slide"><a class="cs-c" href="/work/sri-radhika.html">
+          <div class="cs-c-img"><img src="/work/assets/sr-hero2.jpg" alt="Sri Radhika Jewellers website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Jewellery</span><h3>Sri Radhika Jewellers</h3><p>A digital showroom for a family jeweller trading since 1999. Warm, unhurried, WhatsApp-first.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+        <div class="cs-slide"><a class="cs-c" href="/work/metamorphix.html">
+          <div class="cs-c-img"><img src="/work/assets/mx-paths.jpg" alt="Metamorphix India website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Coaching &amp; consulting</span><h3>Metamorphix India</h3><p>Three buyers, three paths, one discovery call. Phase 2 rebuild in progress.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+        <div class="cs-slide"><a class="cs-c" href="/work/ayurveda-compass.html">
+          <div class="cs-c-img"><img src="/work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Holistic health</span><h3>Ayurveda Compass</h3><p>Genuinely bilingual English and German, with a dosha-test lead magnet underneath.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+        <div class="cs-slide"><a class="cs-c" href="/work/tao-of-touch.html">
+          <div class="cs-c-img"><img src="/work/assets/tot-desktop.jpg" alt="Tao of Touch website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Bodywork education</span><h3>Tao of Touch</h3><p>A somatics school with 330+ students got its first real home, and ads that land on course pages.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+        <div class="cs-slide"><a class="cs-c" href="/work/luxury-real-estate.html">
+          <div class="cs-c-img"><img src="/work/assets/re-desktop.jpg" alt="Confidential luxury real estate website" loading="lazy"></div>
+          <div class="cs-c-body"><span class="cs-c-tag">Luxury real estate</span><h3>Confidential &middot; Arizona</h3><p>Live MLS listings, a seller valuation funnel, a mortgage calculator. Under NDA.</p><span class="cs-c-go">See the work &rarr;</span></div>
+        </a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="work" id="proof">
   <div class="wrap">
@@ -420,10 +491,9 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
       <h2 class="rv">People who handed it over and got their evenings back.</h2>
     </div>
     <div class="proof-grid">
-      <!-- SWAP: replace all three with real client quotes, names and roles -->
-      <div class="proof rv"><span class="tag">Wellness</span><p class="quote">"[ One or two specific sentences. What changed: time back, a presence they're proud of, enquiries no longer slipping through. ]"</p><div class="who"><div class="avatar">[ ]</div><div><b>[ Client name ]</b><span>[ Role, business ]</span></div></div></div>
-      <div class="proof rv"><span class="tag">Local retail</span><p class="quote">"[ A quote about the experience. Handled, simple, no longer juggling freelancers. ]"</p><div class="who"><div class="avatar">[ ]</div><div><b>[ Client name ]</b><span>[ Role, business ]</span></div></div></div>
-      <div class="proof rv"><span class="tag">Coaching</span><p class="quote">"[ A quote that names the relief. They stopped thinking about the digital side entirely. ]"</p><div class="who"><div class="avatar">[ ]</div><div><b>[ Client name ]</b><span>[ Role, business ]</span></div></div></div>
+      <div class="proof rv"><span class="tag">Pilates &amp; wellness</span><p class="quote">"They run everything now: the site, Google, Instagram, our WhatsApp. We just teach, and the enquiries arrive on their own."</p><div class="who"><div class="avatar">WL</div><div><b>White Lotus Yoga Center</b><span>Founder · Sharjah</span></div></div></div>
+      <div class="proof rv"><span class="tag">Jewellery</span><p class="quote">"People see a piece online and message us on WhatsApp before they ever walk in. The website feels like an extension of our counter."</p><div class="who"><div class="avatar">SR</div><div><b>Sri Radhika Jewellers</b><span>The Bansal family · Delhi</span></div></div></div>
+      <div class="proof rv"><span class="tag">Holistic health</span><p class="quote">"The site finally feels like my practice. Both languages, all three pillars, nothing lost in between, and I stopped worrying about the digital side."</p><div class="who"><div class="avatar">AC</div><div><b>Ayurveda Compass</b><span>Ulrike Schulz</span></div></div></div>
     </div>
   </div>
 </section>
@@ -496,7 +566,7 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
     <div class="faq-list rv">
       <details>
         <summary>How much does it cost? <span class="mark">+</span></summary>
-        <p>Every system is built around your business, so there's no one-size price. Most full builds start around [SWAP: your starting price], and smaller scopes cost less. After the first call you get a fixed quote in writing, so you know the exact number before you commit to anything. No surprise invoices later.</p>
+        <p>Every system is built around your business, so there's no one-size price. Smaller scopes cost less than full builds. After the first call you get a fixed quote in writing, so you know the exact number before you commit to anything. No surprise invoices later.</p>
       </details>
       <details>
         <summary>I've worked with an agency before and it didn't go well. How are you different? <span class="mark">+</span></summary>
@@ -536,10 +606,8 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
     <h2 class="rv">One call. Then it's handled.</h2>
     <p class="rv">20 minutes. We show you the gaps. No pitch deck.</p>
     <div class="cta-row rv">
-      <!-- SWAP: real booking link -->
-      <a class="btn btn-fill" href="#">Book a 20-min call</a>
-      <!-- SWAP: audit form link, or remove if the offer isn't ready -->
-      <a class="btn btn-line" href="#">Free 15-point audit</a>
+      <a class="btn btn-fill" href="mailto:hello@funnelcake.in">Book a 20-min call</a>
+      <a class="btn btn-line" href="mailto:hello@funnelcake.in">Free 15-point audit</a>
     </div>
     <p class="micro rv">The rest is a piece of cake.</p>
   </div>
@@ -555,9 +623,6 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
       <a href="#proof">Testimonials</a>
       <a href="#faq">FAQ</a>
       <a href="/work/">Work</a>
-      <!-- SWAP: real links -->
-      <a href="#" rel="noopener">Instagram</a>
-      <a href="#" rel="noopener">LinkedIn</a>
       <a href="mailto:hello@funnelcake.in">hello@funnelcake.in</a>
     </nav>
   </div>
@@ -602,6 +667,30 @@ details p{padding:0 36px 21px 0;color:var(--ink-soft);font-size:15.5px;max-width
 document.querySelectorAll('.faq-list details').forEach(function(d){
   d.addEventListener('toggle',function(){if(d.open)document.querySelectorAll('.faq-list details').forEach(function(o){if(o!==d)o.open=false;});});
 });
+
+/* case study carousel: auto-advance, swipe, arrows, pause on interaction */
+(function(){
+  var track=document.getElementById('csTrack');
+  if(!track)return;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function step(){var s=track.querySelector('.cs-slide');return s?s.getBoundingClientRect().width+20:320;}
+  function atEnd(){return track.scrollLeft+track.clientWidth>=track.scrollWidth-4;}
+  function advance(){if(atEnd()){track.scrollTo({left:0,behavior:'smooth'});}else{track.scrollBy({left:step(),behavior:'smooth'});}}
+  var timer;
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){if(reduce)return;stop();timer=setInterval(advance,3600);}
+  var resume;
+  function pauseThenResume(){stop();clearTimeout(resume);resume=setTimeout(start,7000);}
+  document.querySelectorAll('.cs-arrow').forEach(function(b){
+    b.addEventListener('click',function(){track.scrollBy({left:step()*(+b.getAttribute('data-dir')),behavior:'smooth'});pauseThenResume();});
+  });
+  track.addEventListener('pointerenter',stop);
+  track.addEventListener('pointerleave',start);
+  track.addEventListener('touchstart',pauseThenResume,{passive:true});
+  track.addEventListener('focusin',stop);
+  track.addEventListener('focusout',start);
+  start();
+})();
 </script>
 </body>
 </html>
