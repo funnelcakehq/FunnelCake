@@ -153,9 +153,9 @@ header.over .navlinks a:hover{color:var(--paper)}
 .fan-wrap{display:none}
 
 /* ============ FLOW (the funnel, assembles on scroll) ============ */
-.flow{padding:100px 0 104px;text-align:center}
-.flow h2{max-width:20ch;margin:0 auto;font-size:clamp(32px,4.6vw,58px)}
-.flow-sub{margin:22px auto 0;max-width:48ch;color:var(--ink-soft);font-size:17.5px}
+.flow{background:var(--ink);color:var(--paper);padding:24px 0 110px;text-align:center}
+.flow h2{max-width:20ch;margin:0 auto;font-size:clamp(32px,4.6vw,58px);color:var(--paper)}
+.flow-sub{margin:22px auto 0;max-width:48ch;color:rgba(247,243,238,.7);font-size:17.5px}
 .flow-art{max-width:1000px;margin:46px auto 0}
 .flow-art svg{width:100%;height:auto;overflow:visible}
 .fa .plain{display:none}
@@ -164,7 +164,7 @@ header.over .navlinks a:hover{color:var(--paper)}
   .fa .rich,.fa .plain{display:none}
   .chips-m{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:6px auto 0;max-width:340px}
   .chips-m span{background:#fff;border:1px solid var(--hair);border-radius:999px;padding:9px 16px;
-    font-size:14px;font-weight:500;box-shadow:0 5px 12px -7px rgba(70,42,28,.5)}
+    font-size:14px;font-weight:500;box-shadow:0 8px 16px -8px rgba(0,0,0,.6)}
   .flow-art{margin-top:14px}
 }
 /* legible at rest; .on replays the assembly as an enhancement */
@@ -180,8 +180,8 @@ header.over .navlinks a:hover{color:var(--paper)}
 .fa.on .pulse{animation:softIn .5s 1.4s backwards}
 @media(prefers-reduced-motion:reduce){
   .fa .chip,.fa .core,.fa .pulse,.thread{animation:none}}
-.thread{max-width:440px;margin:0 auto;background:#fff;border:1px solid var(--hair);
-  border-radius:16px;box-shadow:var(--lift);overflow:hidden;text-align:left}
+.thread{max-width:440px;margin:0 auto;background:#fff;color:var(--ink);border:1px solid rgba(247,243,238,.14);
+  border-radius:16px;box-shadow:0 30px 60px -24px rgba(0,0,0,.65);overflow:hidden;text-align:left}
 .thread.on{animation:threadIn .6s .3s backwards}
 @keyframes threadIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .tline{display:flex;align-items:center;gap:12px;padding:14px 18px}
@@ -331,62 +331,77 @@ header.over .navlinks a:hover{color:var(--paper)}
 .own h3{font-size:clamp(25px,3vw,36px);color:var(--paper);max-width:13ch}
 .own p{color:var(--cream-soft);font-size:16.5px}
 
-/* ============ WORK ============ */
-.work{padding:104px 0 96px}
+/* ============ WORK (arc carousel) ============ */
+.work{padding:104px 0 90px;overflow:hidden}
 .work-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .work h2{margin-top:16px;max-width:14ch}
 .seeall{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;
   border-bottom:1.5px solid var(--coral);padding-bottom:2px;white-space:nowrap}
 .seeall:hover{color:var(--coral-deep)}
-.rail{margin-top:52px;display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;padding-bottom:10px;scrollbar-width:none}
-.rail::-webkit-scrollbar{display:none}
-.case{scroll-snap-align:start;flex:0 0 auto;width:min(372px,84vw);text-decoration:none;color:var(--ink)}
-.case .shot{aspect-ratio:16/10;overflow:hidden;border-radius:var(--r-soft);background:var(--sand);
-  border:1px solid var(--hair)}
-.case .shot img{width:100%;height:100%;object-fit:cover;object-position:top;
-  transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.case:hover .shot img{transform:scale(1.04)}
-.case h3{font-size:20px;margin:20px 0 7px}
-.case .sect{font-size:14px;color:var(--ink-faint);margin-bottom:9px}
-.case p{font-size:15.5px;color:var(--ink-soft)}
-.railnav{display:flex;gap:9px;margin-top:26px}
+.wfan{position:relative;height:calc(min(560px,84vw) * .7);margin-top:40px}
+.wcard{position:absolute;left:50%;top:50%;width:min(560px,84vw);
+  margin-left:calc(min(560px,84vw) / -2);border-radius:16px;overflow:hidden;
+  border:1px solid var(--hair);background:#fff;line-height:0;display:block;
+  box-shadow:0 30px 60px -26px rgba(70,42,28,.45);will-change:transform,opacity;
+  transition:transform .85s cubic-bezier(.22,.8,.25,1),opacity .85s ease}
+.wcard img{width:100%;height:auto;display:block}
+.wcard.f0{transform:translate(0,calc(-50% - 8px));opacity:1;z-index:3}
+.wcard.f1{transform:translate(calc(min(560px,84vw) * .58),calc(-50% + 12px)) scale(.84) rotate(3.5deg);opacity:.75;z-index:2}
+.wcard.f-1{transform:translate(calc(min(560px,84vw) * -.58),calc(-50% + 12px)) scale(.84) rotate(-3.5deg);opacity:.75;z-index:2}
+.wcard.f2{transform:translate(calc(min(560px,84vw) * 1.06),calc(-50% + 34px)) scale(.7) rotate(7deg);opacity:.45;z-index:1}
+.wcard.f-2{transform:translate(calc(min(560px,84vw) * -1.06),calc(-50% + 34px)) scale(.7) rotate(-7deg);opacity:.45;z-index:1}
+@media(prefers-reduced-motion:reduce){.wcard,.wc{transition:none}}
+.wcap{position:relative;min-height:164px;margin-top:34px;text-align:center}
+.wc{position:absolute;inset:0;opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .45s ease,transform .45s ease}
+.wc.on{opacity:1;transform:none;pointer-events:auto;transition-delay:.28s}
+.wc h3{font-size:clamp(22px,2.4vw,30px)}
+.wc .wc-sect{margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+.wc .wc-line{margin:12px auto 0;font-size:15.5px;color:var(--ink-soft);max-width:52ch}
+.wc .wc-link{display:inline-block;margin-top:14px;font-weight:600;font-size:14.5px;
+  color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--coral);padding-bottom:2px}
+.wc .wc-link:hover{color:var(--coral-deep)}
+@media(max-width:640px){.wcap{min-height:196px}}
+.railnav{display:flex;gap:9px;margin-top:20px;justify-content:center}
 .arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--rule);background:transparent;
   color:var(--ink);display:grid;place-items:center;cursor:pointer;
   transition:border-color .16s,transform .16s}
 .arrow:hover{border-color:var(--ink);transform:translateY(-2px)}
 .arrow svg{width:18px;height:18px}
 
-/* ============ VOICES (sliding) ============ */
-.voices{background:var(--ink);color:var(--paper);padding:94px 0 86px;overflow:hidden}
-.voices-head{display:flex;justify-content:space-between;align-items:center;gap:20px;
-  flex-wrap:wrap;margin-bottom:42px}
+/* ============ VOICES (index + pull quote) ============ */
+.voices{background:var(--ink);color:var(--paper);padding:100px 0 104px;overflow:hidden}
+.vgrid2{display:grid;grid-template-columns:.42fr .58fr;gap:70px;align-items:start}
+@media(max-width:880px){.vgrid2{grid-template-columns:1fr;gap:36px}}
 .voices .mono{color:rgba(247,243,238,.45)}
-.vnav{display:flex;gap:9px}
-.varrow{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(247,243,238,.26);
-  background:transparent;color:var(--paper);display:grid;place-items:center;cursor:pointer;
-  transition:border-color .18s ease,transform .18s ease,background .18s ease}
-.varrow:hover{border-color:var(--paper);background:rgba(247,243,238,.06);transform:translateY(-2px)}
-.varrow svg{width:18px;height:18px}
-.vport{overflow:hidden}
-.vtrack{display:flex;transition:transform .7s cubic-bezier(.22,.8,.25,1)}
-.vslide{flex:0 0 100%;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
-@media(max-width:900px){.vslide{grid-template-columns:1fr;gap:28px}}
-.qmark{display:block;font-family:'Fraunces',serif;font-size:64px;line-height:.6;color:var(--coral);
-  margin-bottom:14px}
-.vquote{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(21px,2.6vw,33px);
-  line-height:1.34;color:var(--paper);font-variation-settings:'SOFT' 50,'WONK' 1;max-width:22ch}
-.vwho{margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.13em;
-  text-transform:uppercase;color:rgba(247,243,238,.5);line-height:1.9}
-.vwho b{display:block;color:var(--paper);font-weight:500;font-size:12.5px}
-.vshot{border-radius:16px;overflow:hidden;border:1px solid rgba(247,243,238,.14);
-  box-shadow:0 34px 64px -30px rgba(0,0,0,.75);background:#101f30;line-height:0}
-/* natural aspect, so nothing is cropped on any slide */
-.vshot img{width:100%;height:auto;display:block}
-.vdots{display:flex;gap:8px;justify-content:center;margin-top:42px}
-.vdot{width:8px;height:8px;border-radius:50%;border:none;padding:0;cursor:pointer;
-  background:rgba(247,243,238,.24);transition:background .25s ease,width .25s ease,border-radius .25s ease}
-.vdot.on{background:var(--coral);width:24px;border-radius:4px}
+.vnames{margin-top:34px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.vname{position:relative;background:none;border:none;cursor:pointer;text-align:left;
+  font-family:'Fraunces',serif;font-size:clamp(20px,1.9vw,26px);line-height:1.3;
+  color:rgba(247,243,238,.34);padding:11px 0 11px 36px;
+  transition:color .4s ease,padding .4s ease}
+.vname::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:22px;height:2px;background:var(--coral);opacity:0;transition:opacity .4s ease}
+.vname:hover{color:rgba(247,243,238,.68)}
+.vname.on{color:var(--paper)}
+.vname.on::before{opacity:1}
+@media(max-width:880px){
+  .vnames{flex-direction:row;flex-wrap:wrap;gap:2px 22px;margin-top:22px}
+  .vname{font-size:17px;padding:8px 0 8px 26px}
+  .vname::before{width:16px}
+}
+.vstage .qmark{display:block;font-family:'Fraunces',serif;font-size:84px;line-height:.6;
+  color:var(--coral);margin-bottom:30px}
+.vqs{position:relative;min-height:288px}
+@media(max-width:880px){.vqs{min-height:320px}}
+.vq{position:absolute;top:0;left:0;right:0;opacity:0;transform:translateY(12px);
+  pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+.vq.on{opacity:1;transform:none;pointer-events:auto;transition-delay:.18s}
+.vq .vquote{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(23px,2.7vw,37px);
+  line-height:1.34;color:var(--paper);font-variation-settings:'SOFT' 50,'WONK' 1;max-width:26ch}
+.vq .vwho{margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:rgba(247,243,238,.5);line-height:1.9}
+.vq .vwho b{display:block;color:var(--paper);font-weight:500;font-size:12.5px}
 
 /* ============ PROCESS (stacking cards) ============ */
 .how{padding:104px 0 110px}
@@ -437,7 +452,7 @@ header.over .navlinks a:hover{color:var(--paper)}
   border:1px solid var(--hair);border-radius:9px;padding:9px 13px;font-size:13.5px}
 .a-hand svg{width:15px;height:15px;color:#1E8E62;flex-shrink:0}
 
-.fork{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px}
+.fork{margin:52px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px}
 @media(max-width:640px){.fork{grid-template-columns:1fr}}
 .opt{border:1.5px solid var(--rule);border-radius:var(--r-soft);padding:26px 28px;background:var(--paper)}
 .opt.keep{border-color:var(--coral)}
@@ -474,7 +489,7 @@ details p{padding:0 46px 26px 0;color:var(--ink-soft);font-size:16.5px;max-width
 /* ============ WORDMARK ============ */
 .wordmark{background:#0A1622;padding:54px 0 0;overflow:hidden;text-align:center;line-height:.78}
 .wordmark span{font-family:'Instrument Sans',sans-serif;font-weight:700;
-  font-size:clamp(74px,20.5vw,268px);letter-spacing:-.045em;display:inline-block;
+  font-size:clamp(40px,18vw,268px);letter-spacing:-.045em;display:inline-block;
   background:linear-gradient(180deg,#F7F3EE,transparent 145%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.92}
 .wordmark .cake{background:linear-gradient(180deg,#FF6A6A,transparent 150%);
@@ -556,7 +571,7 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
       <svg class="fa" viewBox="0 0 1000 322" role="img" aria-label="Website, Instagram, Google, ads and WhatsApp all feeding one funnel that answers and books an enquiry">
         <defs>
           <filter id="cardsh" x="-40%" y="-40%" width="180%" height="200%">
-            <feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#46281C" flood-opacity="0.16"/>
+            <feDropShadow dx="0" dy="8" stdDeviation="11" flood-color="#000000" flood-opacity="0.45"/>
           </filter>
         </defs>
 
@@ -777,47 +792,50 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
         <span class="mono rise" data-node>Selected work</span>
         <h2 class="rise">Systems already running.</h2>
       </div>
-      <a class="seeall rise" href="/work/">See all six case studies</a>
+      <a class="seeall rise" href="/work/">See all five case studies</a>
     </div>
 
-    <div class="rail" id="rail">
-      <a class="case" href="/work/white-lotus.html">
-        <div class="shot"><img src="work/assets/wl-hero2.jpg" alt="White Lotus Yoga Center website" loading="lazy"></div>
-        <h3>White Lotus Yoga Center</h3>
-        <p class="sect">Pilates and wellness, Sharjah</p>
-        <p>Their whole online presence, run by us, plus a booking system in build.</p>
-      </a>
-      <a class="case" href="/work/sri-radhika.html">
-        <div class="shot"><img src="work/assets/sr-hero2.jpg" alt="Sri Radhika Jewellers website" loading="lazy"></div>
-        <h3>Sri Radhika Jewellers</h3>
-        <p class="sect">Jewellery, Delhi</p>
-        <p>A digital showroom for a family jeweller trading since 1999, built WhatsApp first.</p>
-      </a>
-      <a class="case" href="/work/metamorphix.html">
-        <div class="shot"><img src="work/assets/mx-paths.jpg" alt="Metamorphix India website" loading="lazy"></div>
-        <h3>Metamorphix India</h3>
-        <p class="sect">Coaching and consulting</p>
-        <p>Three very different buyers, three paths, one discovery call at the end of each.</p>
-      </a>
-      <a class="case" href="/work/ayurveda-compass.html">
-        <div class="shot"><img src="work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"></div>
-        <h3>Ayurveda Compass</h3>
-        <p class="sect">Holistic health, Germany and India</p>
-        <p>Bilingual in English and German, with a dosha test quietly collecting leads underneath.</p>
-      </a>
-      <a class="case" href="/work/tao-of-touch.html">
-        <div class="shot"><img src="work/assets/tot-desktop.jpg" alt="Tao of Touch website" loading="lazy"></div>
-        <h3>Tao of Touch</h3>
-        <p class="sect">Bodywork education</p>
-        <p>A somatics school with 330 students finally got a home, and ads that land on course pages.</p>
-      </a>
-      <a class="case" href="/work/luxury-real-estate.html">
-        <div class="shot"><img src="work/assets/re-desktop.jpg" alt="Confidential luxury real estate website" loading="lazy"></div>
-        <h3>Confidential, Arizona</h3>
-        <p class="sect">Luxury real estate, under NDA</p>
-        <p>Live MLS listings, a seller valuation funnel and a mortgage calculator.</p>
-      </a>
+    <div class="wfan" id="wfan">
+      <a class="wcard f0" href="/work/white-lotus.html"><img src="work/assets/wl-hero2.jpg" alt="White Lotus Yoga Center website" loading="lazy"></a>
+      <a class="wcard f1" href="/work/sri-radhika.html"><img src="work/assets/sr-hero2.jpg" alt="Sri Radhika Jewellers website" loading="lazy"></a>
+      <a class="wcard f2" href="/work/metamorphix.html"><img src="work/assets/mx-paths.jpg" alt="Metamorphix India website" loading="lazy"></a>
+      <a class="wcard f-2" href="/work/ayurveda-compass.html"><img src="work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"></a>
+      <a class="wcard f-1" href="/work/tao-of-touch.html"><img src="work/assets/tot-desktop.jpg" alt="Tao of Touch website" loading="lazy"></a>
     </div>
+
+    <div class="wcap" id="wcap">
+      <div class="wc on">
+        <h3>White Lotus Yoga Center</h3>
+        <p class="wc-sect">Pilates and wellness, Sharjah</p>
+        <p class="wc-line">Their whole online presence, run by us, plus a booking system in build.</p>
+        <a class="wc-link" href="/work/white-lotus.html">See the case study &rarr;</a>
+      </div>
+      <div class="wc">
+        <h3>Sri Radhika Jewellers</h3>
+        <p class="wc-sect">Jewellery, Delhi</p>
+        <p class="wc-line">A digital showroom for a family jeweller trading since 1999, built WhatsApp first.</p>
+        <a class="wc-link" href="/work/sri-radhika.html">See the case study &rarr;</a>
+      </div>
+      <div class="wc">
+        <h3>Metamorphix India</h3>
+        <p class="wc-sect">Coaching and consulting</p>
+        <p class="wc-line">Three very different buyers, three paths, one discovery call at the end of each.</p>
+        <a class="wc-link" href="/work/metamorphix.html">See the case study &rarr;</a>
+      </div>
+      <div class="wc">
+        <h3>Ayurveda Compass</h3>
+        <p class="wc-sect">Holistic health, Germany and India</p>
+        <p class="wc-line">Bilingual in English and German, with a dosha test quietly collecting leads underneath.</p>
+        <a class="wc-link" href="/work/ayurveda-compass.html">See the case study &rarr;</a>
+      </div>
+      <div class="wc">
+        <h3>Tao of Touch</h3>
+        <p class="wc-sect">Bodywork education</p>
+        <p class="wc-line">A somatics school with 330 students finally got a home, and ads that land on course pages.</p>
+        <a class="wc-link" href="/work/tao-of-touch.html">See the case study &rarr;</a>
+      </div>
+    </div>
+
 
     <div class="railnav">
       <button class="arrow" data-dir="-1" aria-label="Previous case study"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -828,45 +846,32 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
 
 <!-- ================= VOICES ================= -->
 <section class="voices">
-  <div class="wrap">
-    <div class="voices-head">
+  <div class="wrap vgrid2">
+    <div class="vindex">
       <span class="mono">In their words</span>
-      <div class="vnav">
-        <button class="varrow" type="button" data-v="-1" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <button class="varrow" type="button" data-v="1" aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="vnames" id="vnames">
+        <button class="vname on" type="button">White Lotus Yoga Center</button>
+        <button class="vname" type="button">Sri Radhika Jewellers</button>
+        <button class="vname" type="button">Ayurveda Compass</button>
       </div>
     </div>
-
-    <div class="vport">
-      <div class="vtrack" id="vtrack">
-        <article class="vslide">
-          <div>
-            <span class="qmark" aria-hidden="true">&ldquo;</span>
-            <p class="vquote">They run everything now: the site, Google, Instagram, our WhatsApp. We just teach, and the enquiries arrive on their own.</p>
-            <p class="vwho"><b>White Lotus Yoga Center</b>Founder, Sharjah</p>
-          </div>
-          <div class="vshot"><img src="work/assets/wl-new-hero.jpg" alt="White Lotus Yoga Center website" loading="lazy"></div>
-        </article>
-        <article class="vslide">
-          <div>
-            <span class="qmark" aria-hidden="true">&ldquo;</span>
-            <p class="vquote">People see a piece online and message us on WhatsApp before they ever walk in. The website feels like an extension of our counter.</p>
-            <p class="vwho"><b>Sri Radhika Jewellers</b>The Bansal family, Delhi</p>
-          </div>
-          <div class="vshot"><img src="work/assets/sr-collections.jpg" alt="Sri Radhika Jewellers website" loading="lazy"></div>
-        </article>
-        <article class="vslide">
-          <div>
-            <span class="qmark" aria-hidden="true">&ldquo;</span>
-            <p class="vquote">The site finally feels like my practice. Both languages, all three pillars, and I stopped worrying about the digital side.</p>
-            <p class="vwho"><b>Ayurveda Compass</b>Ulrike Schulz</p>
-          </div>
-          <div class="vshot"><img src="work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"></div>
-        </article>
+    <div class="vstage">
+      <span class="qmark" aria-hidden="true">&ldquo;</span>
+      <div class="vqs" id="vqs">
+        <div class="vq on">
+          <p class="vquote">They run everything now: the site, Google, Instagram, our WhatsApp. We just teach, and the enquiries arrive on their own.</p>
+          <p class="vwho"><b>White Lotus Yoga Center</b>Founder, Sharjah</p>
+        </div>
+        <div class="vq">
+          <p class="vquote">People see a piece online and message us on WhatsApp before they ever walk in. The website feels like an extension of our counter.</p>
+          <p class="vwho"><b>Sri Radhika Jewellers</b>The Bansal family, Delhi</p>
+        </div>
+        <div class="vq">
+          <p class="vquote">The site finally feels like my practice. Both languages, all three pillars, and I stopped worrying about the digital side.</p>
+          <p class="vwho"><b>Ayurveda Compass</b>Ulrike Schulz</p>
+        </div>
       </div>
     </div>
-
-    <div class="vdots" id="vdots"></div>
   </div>
 </section>
 
@@ -1037,37 +1042,25 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
   window.addEventListener('resize',upd);
 })();
 
-/* ---- testimonials slider ---- */
+/* ---- voices: name index drives the pull quote ---- */
 (function(){
-  var track=document.getElementById('vtrack'),dots=document.getElementById('vdots');
-  if(!track||!dots)return;
-  var slides=track.children,n=slides.length,i=0,timer=null;
+  var names=Array.prototype.slice.call(document.querySelectorAll('#vnames .vname'));
+  var quotes=Array.prototype.slice.call(document.querySelectorAll('#vqs .vq'));
+  if(!names.length||names.length!==quotes.length)return;
+  var n=names.length,cur=0,timer=null;
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  for(var k=0;k<n;k++){
-    (function(idx){
-      var b=document.createElement('button');
-      b.type='button';b.className='vdot';
-      b.setAttribute('aria-label','Testimonial '+(idx+1));
-      b.addEventListener('click',function(){go(idx);rest();});
-      dots.appendChild(b);
-    })(k);
-  }
   function go(k){
-    i=(k+n)%n;
-    track.style.transform='translateX('+(-100*i)+'%)';
+    cur=(k+n)%n;
     for(var j=0;j<n;j++){
-      slides[j].setAttribute('aria-hidden',j===i?'false':'true');
-      dots.children[j].classList.toggle('on',j===i);
+      names[j].classList.toggle('on',j===cur);
+      quotes[j].classList.toggle('on',j===cur);
     }
   }
-  function next(){go(i+1);}
-  function start(){if(reduce||timer)return;timer=setInterval(next,6500);}
+  function start(){if(reduce||timer)return;timer=setInterval(function(){go(cur+1);},6000);}
   function stop(){if(timer){clearInterval(timer);timer=null;}}
-  function rest(){stop();start();}
-  var arrows=document.querySelectorAll('.varrow');
-  for(var a=0;a<arrows.length;a++){
-    (function(btn){btn.addEventListener('click',function(){go(i+(+btn.getAttribute('data-v')));rest();});})(arrows[a]);
-  }
+  names.forEach(function(b,idx){
+    b.addEventListener('click',function(){go(idx);stop();start();});
+  });
   var host=document.querySelector('.voices');
   host.addEventListener('pointerenter',stop);
   host.addEventListener('pointerleave',start);
@@ -1333,16 +1326,43 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
   build();
 })();
 
-/* ---- work rail ---- */
+/* ---- work arc carousel ---- */
 (function(){
-  var rail=document.getElementById('rail');
-  if(!rail)return;
-  function step(){var c=rail.querySelector('.case');return c?c.getBoundingClientRect().width+22:340;}
-  document.querySelectorAll('.arrow').forEach(function(b){
-    b.addEventListener('click',function(){
-      rail.scrollBy({left:step()*(+b.getAttribute('data-dir')),behavior:'smooth'});
+  var fan=document.getElementById('wfan');
+  if(!fan)return;
+  var cards=Array.prototype.slice.call(fan.querySelectorAll('.wcard'));
+  var caps=Array.prototype.slice.call(document.querySelectorAll('#wcap .wc'));
+  var n=cards.length,cur=0,timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function apply(){
+    for(var j=0;j<n;j++){
+      var rel=(j-cur+n)%n; if(rel>n/2)rel-=n;
+      cards[j].className='wcard f'+rel;
+      if(caps[j])caps[j].classList.toggle('on',rel===0);
+    }
+  }
+  function go(k){cur=(k+n)%n;apply();}
+  function start(){if(reduce||timer)return;timer=setInterval(function(){go(cur+1);},5500);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function rest(){stop();start();}
+  var arrows=document.querySelectorAll('.railnav .arrow');
+  for(var a=0;a<arrows.length;a++){
+    (function(b){b.addEventListener('click',function(){go(cur+(+b.getAttribute('data-dir')));rest();});})(arrows[a]);
+  }
+  cards.forEach(function(c,idx){
+    c.addEventListener('click',function(ev){
+      if(idx!==cur){ev.preventDefault();go(idx);rest();}
     });
   });
+  var host=document.querySelector('.work');
+  host.addEventListener('pointerenter',stop);
+  host.addEventListener('pointerleave',start);
+  host.addEventListener('focusin',stop);
+  apply();
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){e.isIntersecting?start():stop();});
+  },{threshold:.2});
+  io.observe(host);
 })();
 
 /* ---- one question open at a time ---- */
