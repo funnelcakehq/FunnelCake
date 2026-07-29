@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FAF9F7}
+a{color:#FF5B61;text-decoration:none}
+a:hover{color:#E8474D}
+</style>
+</helmet>
+
+<div style="background:#FAF9F7;min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px 16px;font-family:'Instrument Sans',system-ui,sans-serif">
+  <div style="width:100%;max-width:1000px">
+    <svg data-fc-anim ref="{{ svgRef }}" viewBox="0 0 1000 620" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="A scattered set of business channels connecting into one central system">
+      <defs>
+        <filter id="fcCardShadow" x="-40%" y="-70%" width="180%" height="240%">
+          <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#2A2118" flood-opacity="0.10"></feDropShadow>
+        </filter>
+        <filter id="fcDiscShadow" x="-60%" y="-60%" width="220%" height="220%">
+          <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#2A2118" flood-opacity="0.13"></feDropShadow>
+        </filter>
+      </defs>
+
+      <g data-tangle stroke="#D9D9D9" stroke-width="0.8" fill="none" opacity="1">
+        <path d="M150 92 C 320 52 404 190 500 310"></path>
+        <path d="M150 92 C 268 214 132 240 112 282"></path>
+        <path d="M112 282 C 306 306 392 196 770 70"></path>
+        <path d="M770 70 C 646 176 566 240 500 310"></path>
+        <path d="M888 300 C 704 262 626 178 770 70"></path>
+        <path d="M888 300 C 762 384 640 402 706 522"></path>
+        <path d="M706 522 C 566 458 424 524 236 470"></path>
+        <path d="M236 470 C 186 382 262 300 112 282"></path>
+        <path d="M150 92 C 428 122 700 302 706 522"></path>
+        <path d="M112 282 C 322 462 522 524 888 300"></path>
+        <path d="M770 70 C 522 162 302 380 236 470"></path>
+        <path d="M500 310 C 622 424 520 486 236 470"></path>
+        <path d="M500 310 C 380 400 300 210 150 92"></path>
+        <path d="M500 310 C 700 340 820 420 888 300"></path>
+        <path d="M92 180 C 300 160 420 420 640 380"></path>
+        <path d="M940 200 C 780 240 700 120 560 180"></path>
+        <path d="M180 560 C 340 500 420 580 620 540"></path>
+        <path d="M60 400 C 240 420 300 340 460 400"></path>
+        <path d="M840 560 C 700 480 620 600 500 540"></path>
+        <path d="M280 40 C 380 140 520 60 660 120"></path>
+        <path d="M960 420 C 860 480 780 380 700 440"></path>
+        <path d="M120 120 C 60 260 200 340 80 460"></path>
+        <path d="M420 40 C 460 180 380 260 300 200"></path>
+        <path d="M640 600 C 620 480 760 440 800 360"></path>
+        <path d="M340 300 C 460 240 540 400 660 260"></path>
+        <path d="M200 220 C 380 340 560 100 740 300"></path>
+        <path d="M480 580 C 400 460 260 520 180 400"></path>
+        <path d="M820 100 C 900 220 940 340 860 460"></path>
+      </g>
+
+      <g data-links stroke="#D9D9D9" stroke-width="1" fill="none">
+        <path data-link d="M150 92 C 240 190 300 160 500 310"></path>
+        <path data-link d="M770 70 C 700 200 640 180 500 310"></path>
+        <path data-link d="M888 300 C 760 240 700 380 500 310"></path>
+        <path data-link d="M706 522 C 640 420 560 460 500 310"></path>
+        <path data-link d="M236 470 C 320 400 400 440 500 310"></path>
+        <path data-link d="M112 282 C 240 240 320 360 500 310"></path>
+      </g>
+
+      <g data-rings fill="none" stroke="#DCDAD5" stroke-width="1" opacity="0">
+        <circle data-ring cx="500" cy="310" r="92"></circle>
+        <circle data-ring cx="500" cy="310" r="142"></circle>
+        <circle data-ring cx="500" cy="310" r="192"></circle>
+        <g data-odots>
+          <circle data-odot cx="592" cy="310" r="3.2" fill="#FF5B61" stroke="none" data-accent="fill"></circle>
+          <circle data-odot cx="642" cy="310" r="3.2" fill="#FF5B61" stroke="none" data-accent="fill"></circle>
+          <circle data-odot cx="358" cy="310" r="3.2" fill="#FF5B61" stroke="none" data-accent="fill"></circle>
+          <circle data-odot cx="500" cy="118" r="3.2" fill="#FF5B61" stroke="none" data-accent="fill"></circle>
+        </g>
+      </g>
+
+      <circle data-ripple cx="500" cy="310" r="46" fill="none" stroke="#FF5B61" stroke-width="1.2" opacity="0" data-accent="stroke"></circle>
+
+      <g data-logo opacity="0">
+        <g filter="url(#fcDiscShadow)">
+          <circle data-disc cx="500" cy="310" r="46" fill="#FFFFFF" stroke="#EDEAE4" stroke-width="1"></circle>
+        </g>
+        <image data-logo-img href="assets/funnelcake-mark.jpeg" x="481" y="285" width="38" height="50" preserveAspectRatio="xMidYMid meet"></image>
+      </g>
+
+      <g data-cards font-family="'Instrument Sans',system-ui,sans-serif">
+        <g data-card="0" transform="translate(150,92)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.3" cy="6.7" r="1"></circle>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">Instagram</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">New lead waiting</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Connected ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+
+        <g data-card="1" transform="translate(770,70)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">Website</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">Down for 1h</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Connected ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+
+        <g data-card="2" transform="translate(888,300)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <rect x="3" y="5" width="18" height="14" rx="2.5"></rect>
+            <path d="M4 7l8 5 8-5"></path>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">Email</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">47 unread</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Synced ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+
+        <g data-card="3" transform="translate(706,522)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 1 1 21 11.5z"></path>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">WhatsApp</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">3 new enquiries</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Connected ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+
+        <g data-card="4" transform="translate(236,470)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <circle cx="12" cy="12" r="8.5"></circle>
+            <circle cx="12" cy="12" r="3"></circle>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">Google Ads</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">High spend</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Optimised ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+
+        <g data-card="5" transform="translate(112,282)">
+          <g filter="url(#fcCardShadow)">
+            <rect x="-84" y="-27" width="168" height="54" rx="15" fill="#FFFFFF" stroke="#EAE7E1" stroke-width="1"></rect>
+          </g>
+          <g transform="translate(-70,-11) scale(0.86)" fill="none" stroke="#12212E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+            <path d="M7 3h7l4 4v14H7z"></path>
+            <path d="M14 3v4h4"></path>
+            <path d="M10 13h5M10 16h5"></path>
+          </g>
+          <text x="-44" y="-4" font-size="14" font-weight="600" fill="#12212E">Content</text>
+          <text data-bad x="-44" y="14" font-size="11.5" font-weight="500" fill="#9C978F">Not published</text>
+          <text data-good x="-44" y="14" font-size="11.5" font-weight="500" fill="#FF5B61" opacity="0" data-accent="fill">Published ✓</text>
+          <g data-warn>
+            <circle cx="70" cy="-15" r="8" fill="#FF5B61" opacity="0.12" data-accent="fill"></circle>
+            <circle cx="70" cy="-15" r="3.6" fill="#FF5B61" data-accent="fill"></circle>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1040,&quot;height&quot;:700},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FF5B61&quot;,&quot;options&quot;:[&quot;#FF5B61&quot;,&quot;#E8474D&quot;,&quot;#12212E&quot;,&quot;#1E8E62&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;},&quot;logoSrc&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/funnelcake-mark.jpeg&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Look&quot;},&quot;idleHold&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:2,&quot;max&quot;:14,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;loop&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+const GEO = {
+  wide: {
+    vb: "0 0 1000 620", c: [500, 310], scale: 1, discR: 46, rings: [92, 142, 192],
+    tangle: "",
+    chaos: [[150, 92], [770, 70], [888, 300], [706, 522], [236, 470], [112, 282]],
+    orbit: [[252, 168], [500, 86], [500, 534], [252, 452], [748, 452], [748, 168]]
+  },
+  narrow: {
+    vb: "0 0 1000 980", c: [500, 470], scale: 1.45, discR: 68, rings: [150, 228, 306],
+    tangle: "translate(500,470) scale(1,1.55) translate(-500,-310)",
+    chaos: [[250, 130], [730, 190], [790, 700], [300, 830], [230, 530], [760, 420]],
+    orbit: [[250, 250], [500, 110], [500, 830], [250, 690], [750, 690], [750, 250]]
+  }
+};
+
+const BOW = [-1, 1, -1, 1, -1, 1];
+const WILD = [[-120, 70], [90, -130], [-140, -60], [60, 140], [-70, 130], [130, -80]];
+
+const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
+const easeInOut = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const easeOutQ = t => 1 - Math.pow(1 - t, 5);
+const smooth = t => { const x = clamp01(t); return x * x * (3 - 2 * x); };
+const lerp = (a, b, t) => a + (b - a) * t;
+
+class Component extends DCLogic {
+  svgRefObj = React.createRef();
+
+  renderVals() {
+    return { svgRef: this.svgRefObj };
+  }
+
+  componentDidMount() {
+    const s = this.svgRefObj.current || document.querySelector("[data-fc-anim]");
+    if (!s) return;
+    this.s = s;
+    const qa = sel => Array.prototype.slice.call(s.querySelectorAll(sel));
+    this.cards = qa("[data-card]").sort((a, b) => +a.dataset.card - +b.dataset.card);
+    this.warns = this.cards.map(c => c.querySelector("[data-warn]"));
+    this.bads = this.cards.map(c => c.querySelector("[data-bad]"));
+    this.goods = this.cards.map(c => c.querySelector("[data-good]"));
+    this.links = qa("[data-link]");
+    this.tangle = s.querySelector("[data-tangle]");
+    this.ringsG = s.querySelector("[data-rings]");
+    this.ringEls = qa("[data-ring]");
+    this.dots = qa("[data-odot]");
+    this.logo = s.querySelector("[data-logo]");
+    this.logoImg = s.querySelector("[data-logo-img]");
+    this.disc = s.querySelector("[data-disc]");
+    this.ripple = s.querySelector("[data-ripple]");
+
+    const accent = this.props.accent;
+    if (accent) qa("[data-accent]").forEach(el => el.setAttribute(el.dataset.accent, accent));
+    if (this.props.logoSrc) this.logoImg.setAttribute("href", this.props.logoSrc);
+
+    const hold = this.props.idleHold ?? 6;
+    this.T = { chaos: 2, freeze: 0.3, logoIn: 2.3, logoDur: 0.42, t0: 2.66, stag: 0.1, dur: 1.32, rings: 4.1, ringsDur: 0.9 };
+    this.settle = this.T.t0 + 5 * this.T.stag + this.T.dur + 0.35;
+    this.idleEnd = this.settle + hold;
+    this.scatter = 1.45;
+    this.LOOP = this.idleEnd + this.scatter;
+    this.pulses = [this.T.t0 + 0.02, this.settle + hold * 0.45];
+
+    this.reduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    this.layout();
+    this.onResize = () => { clearTimeout(this._rt); this._rt = setTimeout(() => this.layout(true), 150); };
+    window.addEventListener("resize", this.onResize);
+
+    this.start = performance.now();
+    if (this.reduce) { this.paint(this.settle + 0.4, 0); return; }
+    const tick = now => {
+      this.raf = requestAnimationFrame(tick);
+      const abs = (now - this.start) / 1000;
+      let t = abs;
+      if (this.props.loop === false) t = Math.min(abs, this.idleEnd);
+      else t = abs % this.LOOP;
+      this.paint(t, abs);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener("resize", this.onResize);
+    clearTimeout(this._rt);
+  }
+
+  layout(repaint) {
+    const w = this.s.getBoundingClientRect().width || 1000;
+    const g = w < 640 ? GEO.narrow : GEO.wide;
+    if (this.g === g && !repaint) return;
+    this.g = g;
+    this.s.setAttribute("viewBox", g.vb);
+    this.tangle.setAttribute("transform", g.tangle);
+    this.ringEls.forEach((r, i) => {
+      r.setAttribute("cx", g.c[0]); r.setAttribute("cy", g.c[1]); r.setAttribute("r", g.rings[i]);
+    });
+    this.disc.setAttribute("cx", g.c[0]); this.disc.setAttribute("cy", g.c[1]); this.disc.setAttribute("r", g.discR);
+    this.ripple.setAttribute("cx", g.c[0]); this.ripple.setAttribute("cy", g.c[1]);
+    const iw = g.discR * 0.82, ih = iw / 0.697;
+    this.logoImg.setAttribute("x", g.c[0] - iw / 2);
+    this.logoImg.setAttribute("y", g.c[1] - ih / 2);
+    this.logoImg.setAttribute("width", iw);
+    this.logoImg.setAttribute("height", ih);
+    if (this.reduce) this.paint(this.settle + 0.4, 0);
+  }
+
+  paint(t, abs) {
+    const g = this.g, T = this.T, C = g.c;
+    const sp = smooth((t - this.idleEnd) / this.scatter);
+    const scat = easeInOut(clamp01((t - this.idleEnd) / this.scatter));
+
+    // chaos wobble amplitude: alive, then damped to a held beat, then back on scatter
+    let amp = t < T.chaos ? 1 : 1 - clamp01((t - T.chaos) / T.freeze);
+    amp = Math.max(amp, sp);
+
+    for (let i = 0; i < 6; i++) {
+      let p = clamp01((t - (T.t0 + i * T.stag)) / T.dur);
+      p = easeInOut(p);
+      if (t >= this.idleEnd) p = 1 - scat;
+
+      const A = g.chaos[i], B = g.orbit[i];
+      const mx = (A[0] + B[0]) / 2, my = (A[1] + B[1]) / 2;
+      const dx = B[0] - A[0], dy = B[1] - A[1];
+      const len = Math.hypot(dx, dy) || 1;
+      const bow = BOW[i] * Math.min(len * 0.22, 130);
+      const cx = mx + (-dy / len) * bow, cy = my + (dx / len) * bow;
+      const q = 1 - p;
+      let x = q * q * A[0] + 2 * q * p * cx + p * p * B[0];
+      let y = q * q * A[1] + 2 * q * p * cy + p * p * B[1];
+
+      x += amp * (3.4 * Math.sin(abs * 0.83 + i * 1.7) + 1.7 * Math.sin(abs * 1.61 + i * 2.9));
+      y += amp * (3.0 * Math.sin(abs * 0.71 + i * 2.3) + 1.5 * Math.sin(abs * 1.43 + i));
+      const settled = p > 0.995 ? 1 : 0;
+      y += settled * 2.4 * Math.sin(abs * 0.72 + i * 1.25);
+      x += settled * 1.4 * Math.sin(abs * 0.55 + i * 2.1);
+
+      this.cards[i].setAttribute("transform", "translate(" + x.toFixed(2) + "," + y.toFixed(2) + ") scale(" + g.scale + ")");
+
+      const good = smooth((p - 0.93) / 0.07);
+      this.goods[i].setAttribute("opacity", good.toFixed(3));
+      this.bads[i].setAttribute("opacity", (1 - good).toFixed(3));
+      this.warns[i].setAttribute("opacity", (1 - smooth(p / 0.3)).toFixed(3));
+
+      // connection line: tangled, then straight
+      const w = 1 - p;
+      const t1x = lerp(x, C[0], 0.34), t1y = lerp(y, C[1], 0.34);
+      const t2x = lerp(x, C[0], 0.68), t2y = lerp(y, C[1], 0.68);
+      const c1x = t1x + WILD[i][0] * w, c1y = t1y + WILD[i][1] * w;
+      const c2x = t2x - WILD[i][0] * 0.7 * w, c2y = t2y - WILD[i][1] * 0.7 * w;
+      this.links[i].setAttribute("d", "M" + x.toFixed(1) + " " + y.toFixed(1) + " C" + c1x.toFixed(1) + " " + c1y.toFixed(1) + "," + c2x.toFixed(1) + " " + c2y.toFixed(1) + "," + C[0] + " " + C[1]);
+      this.links[i].setAttribute("opacity", (0.9 - 0.42 * p).toFixed(3));
+    }
+
+    // background tangle dissolves as the system connects
+    let tang = 1 - smooth((t - (T.t0 - 0.1)) / 1.15);
+    tang = Math.max(tang, sp);
+    this.tangle.setAttribute("opacity", (tang * 0.95).toFixed(3));
+    const drift = amp * 2.2;
+    this.tangle.setAttribute("transform", (g.tangle ? g.tangle + " " : "") + "translate(" + (drift * Math.sin(abs * 0.4)).toFixed(2) + "," + (drift * Math.sin(abs * 0.31 + 1)).toFixed(2) + ")");
+
+    // logo: 90% → 100% with a soft fade, then breathes
+    const li = easeOut(clamp01((t - T.logoIn) / T.logoDur));
+    let lo = li;
+    if (t >= this.idleEnd) lo = 1 - smooth((t - (this.idleEnd + 0.35)) / 0.6);
+    let k = lerp(0.9, 1, li);
+    if (t > this.settle) k *= 1 + 0.006 * Math.sin((abs) * 1.15);
+    this.logo.setAttribute("opacity", lo.toFixed(3));
+    this.logo.setAttribute("transform", "translate(" + C[0] + "," + C[1] + ") scale(" + k.toFixed(4) + ") translate(" + -C[0] + "," + -C[1] + ")");
+
+    // one ripple on landing, one slow pulse mid-idle
+    let rR = g.discR, rO = 0;
+    for (const p0 of this.pulses) {
+      const u = clamp01((t - p0) / 1.1);
+      if (u > 0 && u < 1) {
+        const e = easeOutQ(u);
+        rR = g.discR + e * g.discR * 1.7;
+        rO = 0.42 * (1 - u) * (1 - u);
+      }
+    }
+    this.ripple.setAttribute("r", rR.toFixed(1));
+    this.ripple.setAttribute("opacity", rO.toFixed(3));
+
+    // orbit rings + travelling coral dots
+    let ro = smooth((t - T.rings) / T.ringsDur);
+    if (t >= this.idleEnd) ro *= 1 - smooth((t - this.idleEnd) / 0.5);
+    const pulse = 1 + 0.012 * Math.sin(abs * 0.9);
+    const rs = lerp(0.94, 1, smooth((t - T.rings) / T.ringsDur)) * pulse;
+    this.ringsG.setAttribute("opacity", ro.toFixed(3));
+    this.ringsG.setAttribute("transform", "translate(" + C[0] + "," + C[1] + ") scale(" + rs.toFixed(4) + ") translate(" + -C[0] + "," + -C[1] + ")");
+    const map = [0, 1, 1, 2], sped = [0.30, -0.19, 0.22, -0.14], ph = [0, 1.9, 4.1, 2.7];
+    this.dots.forEach((d, i) => {
+      const r = g.rings[map[i]], a = abs * sped[i] + ph[i];
+      d.setAttribute("cx", (C[0] + r * Math.cos(a)).toFixed(2));
+      d.setAttribute("cy", (C[1] + r * Math.sin(a)).toFixed(2));
+    });
+  }
+}
+</script>
+</body>
+</html>
