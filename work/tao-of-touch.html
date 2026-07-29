@@ -5,116 +5,20 @@
 <title>Tao of Touch | FunnelCake Case Study</title>
 <meta name="description" content="A trauma-informed bodywork and somatics school with 330+ students got its first real home — five trainings as structured pages, ISO-backed certification, ads pointed at course pages.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#F7F3EE;--sand:#F1E9DC;--ink:#0D1B2A;--soft:#5A6675;--coral:#FF5B5B;--coral-deep:#E14848;--coral-tint:#FFE9E4;--green:#1E8E62;--rule:#E5DCCE;--rule-soft:#EFE8DC}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:'Poppins',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--ink)}a:hover{color:var(--coral-deep)}
-img{display:block;max-width:100%}
-.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
-:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.brand{font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-.brand em{color:var(--coral);font-style:normal}
-.topnav{display:flex;gap:22px;align-items:center}
-.topnav a.plain{white-space:nowrap;font-size:13.5px;font-weight:500;text-decoration:none;color:var(--soft)}
-.topnav a.plain:hover{color:var(--ink)}
-.btn{display:inline-block;white-space:nowrap;flex-shrink:0;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:11px 26px;border-radius:999px;transition:transform .15s,box-shadow .15s}
-.btn:hover{color:#fff;transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,91,91,.35)}
-.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral-deep);font-weight:600}
-.hero{padding:64px 0 20px}
-.hero h1{font-size:clamp(32px,5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.028em;max-width:20ch;margin-top:14px;text-wrap:balance}
-.dek{font-size:18px;color:var(--soft);max-width:52ch;margin-top:18px;text-wrap:pretty}
-.stage{margin-top:44px}
-.stage figcaption,.workcap{font-size:13px;color:var(--soft);margin-top:12px;max-width:70ch}
-.bf{background:#fff;border:1px solid var(--rule);border-radius:16px;overflow:hidden;box-shadow:0 34px 80px rgba(13,27,42,.16),0 4px 14px rgba(13,27,42,.06)}
-.bf-bar{display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid var(--rule-soft);background:#FDFBF8}
-.bf-bar i{width:9px;height:9px;border-radius:50%;background:var(--rule)}
-.bf-url{margin:0 auto;background:var(--paper);border-radius:999px;font-size:11px;color:var(--soft);padding:3px 18px;font-weight:500}
-.pf{width:min(240px,60vw);border-radius:36px;border:9px solid var(--ink);overflow:hidden;background:var(--ink);box-shadow:0 30px 70px rgba(13,27,42,.25);position:relative}
-.pf::after{content:'';position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:20px;background:var(--ink);border-radius:0 0 12px 12px}
-.duo{display:flex;align-items:flex-end;justify-content:center}
-.duo .bf{flex:1;min-width:0}
-.duo .pf{margin-left:-64px;margin-bottom:-18px;flex-shrink:0}
-section{padding:72px 0 0}
-section h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.025em;margin:10px 0 0;text-wrap:balance;max-width:24ch}
-.brief{font-size:clamp(17px,2vw,21px);line-height:1.6;max-width:56ch;margin-top:18px;color:#33415A;text-wrap:pretty}
-.brief b{color:var(--ink);font-weight:600}
-.sys{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
-.sys span{white-space:nowrap;line-height:1.3;font-size:12.5px;font-weight:500;padding:9px 18px;border-radius:999px;background:var(--ink);color:#F7F3EE}
-.sys span.k{background:var(--coral);color:#fff}
-.workstack{display:grid;gap:52px;margin-top:36px}
-.work2{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.badge{display:inline-block;background:var(--ink);color:var(--paper);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-left:10px;vertical-align:middle}
-.badge.build{background:var(--green)}
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:36px}
-.ba .shotwrap{position:relative}
-.ba .tagchip{position:absolute;top:14px;left:14px;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.1em;padding:5px 13px;border-radius:999px}
-.ba .before .tagchip{background:var(--ink);color:var(--paper)}
-.ba .after .tagchip{background:var(--coral);color:#fff}
-.ba .before img{filter:saturate(.72) contrast(.95)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:34px;border-top:1px solid var(--rule)}
-.fact{padding:26px 26px 26px 0}
-.fact b{display:block;font-size:clamp(38px,4.6vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--ink)}
-.fact small{font-size:13px;color:var(--soft);display:block;margin-top:6px;font-weight:500}
-blockquote{border-left:4px solid var(--coral);padding:6px 0 6px 28px;font-size:clamp(19px,2.4vw,24px);font-weight:600;line-height:1.5;max-width:32ch;letter-spacing:-.015em;margin-top:22px}
-blockquote footer{font-size:12.5px;color:var(--soft);font-weight:500;margin-top:14px}
-.draftchip{display:inline-block;background:var(--coral-tint);color:var(--coral-deep);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-top:12px}
-.cta{background:var(--coral);color:#fff;border-radius:26px;padding:52px 48px;margin:80px 0 20px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
-.cta h2{font-weight:800;font-size:clamp(22px,3vw,32px);letter-spacing:-.02em}
-.cta .sub{color:rgba(255,255,255,.85);font-size:14.5px;margin-top:6px}
-.cta .btn{background:var(--ink);color:var(--paper)}
-.cta .btn:hover{box-shadow:0 8px 20px rgba(13,27,42,.4)}
-.nextnav{display:flex;justify-content:space-between;gap:16px;padding:22px 0 6px;font-size:12.5px}
-.nextnav a{text-decoration:none;color:var(--soft)}
-.nextnav a b{display:block;font-size:16px;color:var(--ink);margin-top:2px;font-weight:600}
-.nextnav a:hover b{color:var(--coral-deep)}
-footer.site{border-top:1px solid var(--rule);margin-top:26px;padding:26px 0 40px;font-size:12.5px;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-[data-r]{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-[data-r].in{opacity:1;transform:none}
-@media print{[data-r]{opacity:1!important;transform:none!important}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-r]{opacity:1;transform:none;transition:none}}
-@media(max-width:820px){.work2,.ba{grid-template-columns:1fr}.duo .pf{margin-left:-44px}}
-@media(max-width:640px){.cta{padding:38px 28px}.duo{flex-direction:column;align-items:center}.duo .pf{margin:-40px 0 0}.fact{padding:20px 16px 20px 0}}
-
-/* ===== SITE HEADER / FOOTER (matched to funnelcake.in live site) ===== */
-.sh{position:sticky;top:0;z-index:90;background:rgba(247,243,238,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #EFE8DC}
-.sh-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
-.sh-brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-.03em;color:var(--ink)}
-.sh-logo{height:30px;width:auto;display:block}
-.sh-brand em{font-style:normal;color:var(--coral)}
-.sh-links{display:flex;gap:28px}
-.sh-links a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--ink);opacity:.7}
-.sh-links a:hover{opacity:1;color:var(--ink)}
-.sh-links a[aria-current="page"]{opacity:1;font-weight:700;color:var(--coral-deep)}
-.sh-cta{display:inline-flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;padding:13px 24px;border-radius:9px;text-decoration:none;color:#fff;background:var(--coral);box-shadow:0 8px 22px rgba(255,91,91,.3);transition:transform .15s,background .15s;white-space:nowrap}
-.sh-cta:hover{background:var(--coral-deep);color:#fff;transform:translateY(-1px)}
-@media(max-width:840px){.sh-links{display:none}}
-.wordmark{background:#0A1622;padding:50px 0 0;overflow:hidden;text-align:center;line-height:.8}
-.wordmark span{font-weight:800;font-size:clamp(72px,20vw,260px);letter-spacing:-.04em;display:inline-block;background:linear-gradient(180deg,#F7F3EE,transparent 145%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.9}
-.wordmark .cake{background:linear-gradient(180deg,#FF6A6A,transparent 150%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.sf{padding:34px 0;background:#0A1622;color:rgba(247,243,238,.62);border-top:1px solid rgba(247,243,238,.08)}
-.sf-inner{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-.sf-inner small{font-size:13px}
-.sf-inner nav{display:flex;gap:20px;flex-wrap:wrap}
-.sf-inner nav a{font-size:13.5px;text-decoration:none;color:rgba(247,243,238,.62)}
-.sf-inner nav a:hover{color:var(--paper)}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-<header class="sh">
-  <div class="sh-inner">
-    <a class="sh-brand" href="/" aria-label="FunnelCake home"><img class="sh-logo" src="/assets/funnelcake-logo.png" alt="FunnelCake" width="442" height="120"></a>
-    <nav class="sh-links" aria-label="Main">
-      <a href="/#system">What we build</a>
+<header>
+  <div class="wrap navbar">
+    <a class="brand" href="/" aria-label="FunnelCake home"><img class="lg" src="/assets/funnelcake-logo.png" alt="FunnelCake" width="442" height="120"></a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="/#build">What we build</a>
       <a href="/work/" aria-current="page">Work</a>
-      <a href="/#proof">Testimonials</a>
-      <a href="/#process">How it works</a>
-      <a href="/#faq">FAQ</a>
+      <a href="/#how">How it works</a>
+      <a href="/#faq">Questions</a>
     </nav>
-    <a class="sh-cta" href="mailto:hello@funnelcake.in">Get a free audit</a>
+    <a class="btn btn-coral" href="mailto:hello@funnelcake.in">Book a call</a>
   </div>
 </header>
 <div class="wrap">
@@ -145,13 +49,13 @@ footer.site{border-top:1px solid var(--rule);margin-top:26px;padding:26px 0 40px
   </nav>
 </div>
 <div class="wordmark" aria-hidden="true"><span>funnel<span class="cake">cake</span></span></div>
-<footer class="sf">
-  <div class="sf-inner">
-    <small>&copy; 2026 FunnelCake &middot; Digital Growth Partners</small>
+<footer>
+  <div class="wrap foot">
+    <small>&copy; 2026 FunnelCake, Digital Growth Partners</small>
     <nav aria-label="Footer">
-      <a href="/#proof">Testimonials</a>
-      <a href="/#faq">FAQ</a>
       <a href="/work/">Work</a>
+      <a href="/#how">How it works</a>
+      <a href="/#faq">Questions</a>
       <a href="mailto:hello@funnelcake.in">hello@funnelcake.in</a>
     </nav>
   </div>
