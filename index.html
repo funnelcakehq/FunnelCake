@@ -247,9 +247,15 @@ header.over .navlinks a:hover{color:var(--paper)}
 .n4{--t:rotate(1.7deg);left:8%;top:198px}
 .n5{--t:rotate(-2.5deg);left:59%;top:172px}
 @media(max-width:860px){
-  .mess{height:auto;display:flex;flex-direction:column;gap:12px;align-items:center}
-  .note{position:static;width:100%;max-width:360px}
-  .n1,.n2,.n3,.n4,.n5{left:auto;top:auto}
+  /* a pile of unhandled notifications reads as overwhelm, not a tidy feed */
+  .mess{height:auto;display:block;max-width:342px;margin:0 auto;padding:16px 0 8px}
+  .note{position:relative;width:100%;max-width:none;margin:0}
+  .note + .note{margin-top:-10px}
+  .n1{--t:rotate(-2deg) translateX(-6px);top:auto;left:auto;z-index:1}
+  .n2{--t:rotate(1.6deg) translateX(6px);top:auto;left:auto;z-index:2}
+  .n3{--t:rotate(-1.3deg) translateX(-4px);top:auto;left:auto;z-index:3}
+  .n4{--t:rotate(1.8deg) translateX(5px);top:auto;left:auto;z-index:4}
+  .n5{--t:rotate(-1.5deg) translateX(-3px);top:auto;left:auto;z-index:5}
 }
 @media(max-width:560px){
   .note{padding:11px 13px;gap:10px;border-radius:13px}
