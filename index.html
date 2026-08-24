@@ -138,17 +138,16 @@ header.over .navlinks a:hover{color:var(--paper)}
   border-bottom:1.5px solid var(--rule);padding-bottom:3px;transition:border-color .2s}
 .quiet:hover{border-color:var(--ink)}
 @media(max-width:860px){
-  .hero{padding:28px 0 46px;text-align:center}
-  .hero-grid{grid-template-columns:1fr;gap:6px}
-  .hero-inner{max-width:none;order:1;margin:0 auto}
+  .hero{padding:22px 0 46px;text-align:center}
+  .hero-grid{grid-template-columns:1fr;gap:8px}
+  .hero-anim{order:1;max-width:420px;margin:0 auto 16px}
+  .hero-inner{max-width:none;order:2;margin:0 auto}
   .hero h1{font-size:clamp(34px,9vw,48px);line-height:1.03}
   .hero .lead{max-width:36ch;margin:16px auto 0;font-size:16.5px}
-  .hero .hero-cta{order:1;flex-direction:column;align-items:stretch;gap:6px;margin-top:26px}
-  .hero .pill{width:100%}
-  .hero .pill .lbl{flex:1;text-align:center;padding:16px 24px}
+  .hero .hero-cta{flex-direction:column;align-items:center;gap:10px;margin-top:24px}
+  .hero .pill .lbl{padding:14px 26px}
   .hero .pill .arw{display:none}
-  .hero .quiet{align-self:center;padding:13px 6px;margin-top:2px}
-  .hero-anim{order:2;max-width:430px;margin:16px auto 0}
+  .hero .quiet{padding:10px 6px}
 }
 
 /* ---- cta pill with arrow ---- */
@@ -174,12 +173,14 @@ header.over .navlinks a:hover{color:var(--paper)}
 .flow-art svg{width:100%;height:auto;overflow:visible}
 .fa .plain{display:none}
 .chips-m{display:none}
+.funnel-cue{display:none}
 @media(max-width:760px){
   .fa .rich,.fa .plain{display:none}
   .chips-m{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:6px auto 0;max-width:340px}
   .chips-m span{background:#fff;border:1px solid var(--hair);border-radius:999px;padding:9px 16px;
     font-size:14px;font-weight:500;box-shadow:0 8px 16px -8px rgba(70,42,28,.26)}
-  .flow-art{margin-top:14px}
+  .flow-art{display:none}
+  .funnel-cue{display:block;width:min(280px,80%);height:auto;margin:16px auto 22px}
 }
 /* legible at rest; .on replays the assembly as an enhancement */
 @keyframes chipIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
@@ -267,7 +268,7 @@ header.over .navlinks a:hover{color:var(--paper)}
 .reveal{font-size:clamp(17px,1.8vw,20px);line-height:1.55;max-width:52ch;margin:24px auto 0}
 .reveal .w{color:var(--paper);transition:opacity .18s linear}
 .reveal.dim .w{opacity:.26}
-.punch{margin-top:30px;font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+.punch{margin-top:30px;font-family:'Fraunces',serif;font-style:normal;font-weight:500;
   font-size:clamp(24px,3vw,40px);color:var(--coral);font-variation-settings:'SOFT' 60,'WONK' 1}
 
 /* ============ BUILD ============ */
@@ -280,7 +281,19 @@ header.over .navlinks a:hover{color:var(--paper)}
 .bgrid{margin-top:56px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 @media(max-width:1080px){.bgrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.bgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.bgrid{grid-template-columns:1fr}}
+@media(max-width:520px){
+  /* phones: a fast-scannable list beats five screen-tall animated cards.
+     Scoped under .bgrid so these win over the base .bcard rules that follow. */
+  .bgrid{grid-template-columns:1fr;gap:12px;margin-top:36px}
+  .bgrid .bcard{padding:18px 20px;gap:5px}
+  .bgrid .bcard .mini{display:none}
+  .bgrid .bcard .num{color:var(--coral-deep)}
+  .bgrid .bcard h3{font-size:18.5px}
+  .bgrid .bcard p{font-size:14.5px;color:var(--ink-soft)}
+  /* the auto-advance highlight only reads when cards sit side by side */
+  .bgrid .bcard.on{transform:none;box-shadow:0 4px 18px -6px rgba(70,42,28,.14);border-color:var(--hair)}
+  .bgrid .bcard.on .num{color:var(--coral-deep)}
+}
 .bcard{background:#fff;border:1px solid var(--hair);border-radius:16px;padding:20px 18px 22px;
   display:flex;flex-direction:column;gap:13px;cursor:default;
   transition:transform .4s cubic-bezier(.2,.8,.3,1),box-shadow .4s ease,border-color .4s ease}
@@ -372,6 +385,7 @@ header.over .navlinks a:hover{color:var(--paper)}
 .wcard.f-1{transform:translate(calc(min(560px,84vw) * -.58),calc(-50% + 12px)) scale(.84) rotate(-3.5deg);opacity:.75;z-index:2}
 .wcard.f2{transform:translate(calc(min(560px,84vw) * 1.06),calc(-50% + 34px)) scale(.7) rotate(7deg);opacity:.45;z-index:1}
 .wcard.f-2{transform:translate(calc(min(560px,84vw) * -1.06),calc(-50% + 34px)) scale(.7) rotate(-7deg);opacity:.45;z-index:1}
+.wcard.f3{transform:translate(calc(min(560px,84vw) * 1.5),calc(-50% + 54px)) scale(.6) rotate(9deg);opacity:0;z-index:0}
 @media(prefers-reduced-motion:reduce){.wcard,.wc{transition:none}}
 .wcap{position:relative;min-height:164px;margin-top:34px;text-align:center}
 .wc{position:absolute;inset:0;opacity:0;transform:translateY(10px);pointer-events:none;
@@ -386,6 +400,24 @@ header.over .navlinks a:hover{color:var(--paper)}
 .wc .wc-link:hover{color:var(--coral-deep)}
 @media(max-width:640px){.wcap{min-height:196px}}
 .railnav{display:flex;gap:9px;margin-top:20px;justify-content:center}
+.wcard-cap{display:none}
+@media(max-width:880px){
+  /* phones & small tablets: native swipe carousel; arrows moved up, still work */
+  .work .wrap{display:flex;flex-direction:column}
+  .work .work-head{order:1}
+  .work .railnav{order:2;display:flex;justify-content:flex-end;gap:10px;margin:14px 0 0}
+  .work .wfan{order:3;position:static;display:flex;height:auto;overflow-x:auto;overflow-y:visible;
+    scroll-snap-type:x mandatory;gap:16px;margin:16px -24px 0;padding:6px 24px 18px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .work .wfan::-webkit-scrollbar{display:none}
+  .work .wfan .wcard{position:relative;left:auto;top:auto;margin-left:0;transform:none;opacity:1;
+    width:78%;max-width:320px;flex:0 0 auto;scroll-snap-align:center;line-height:normal;
+    box-shadow:0 16px 32px -18px rgba(70,42,28,.4)}
+  .work .wfan .wcard-cap{display:block;padding:15px 16px 17px;line-height:normal}
+  .wcard-cap b{display:block;font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--ink);letter-spacing:-.01em}
+  .wcard-cap .sect{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:5px}
+  .work .wcap{order:4;display:none}
+}
 .arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--rule);background:transparent;
   color:var(--ink);display:grid;place-items:center;cursor:pointer;
   transition:border-color .16s,transform .16s}
@@ -424,6 +456,20 @@ header.over .navlinks a:hover{color:var(--paper)}
 .vq .vwho{margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;
   letter-spacing:.13em;text-transform:uppercase;color:rgba(247,243,238,.5);line-height:1.9}
 .vq .vwho b{display:block;color:var(--paper);font-weight:500;font-size:12.5px}
+@media(max-width:880px){
+  /* phones: show all three testimonials, drop the messy name-tabs + auto-rotate.
+     Scoped under .voices so these win over the base .vq rules that follow. */
+  .voices{padding:60px 0 68px}
+  .voices .vgrid2{grid-template-columns:1fr;gap:0}
+  .voices .vnames{display:none}
+  .voices .vstage .qmark{font-size:58px;margin-bottom:8px}
+  .voices .vqs{position:static;min-height:0;display:block}
+  .voices .vq{position:static;opacity:1;transform:none;pointer-events:auto;padding:26px 0;
+    border-top:1px solid rgba(247,243,238,.13)}
+  .voices .vqs .vq:first-of-type{border-top:none;padding-top:4px}
+  .voices .vq .vquote{font-size:clamp(20px,5.6vw,27px);max-width:none}
+  .voices .vq .vwho{margin-top:14px}
+}
 
 /* ============ PROCESS (stacking cards) ============ */
 .how{padding:104px 0 110px}
@@ -782,7 +828,7 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
 
     <h2 class="rise" data-node>The pieces exist. Nothing passes anything along.</h2>
     <p class="reveal">You have a website somewhere. You posted for a few weeks, then stopped. An enquiry came in at 11pm, and it is still sitting there.</p>
-    <p class="punch rise">Sound like you?</p>
+    <p class="punch rise">Sounds like you?</p>
   </div>
 </section>
 
@@ -797,6 +843,17 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
       <span>Website</span><span>Instagram</span><span>Google</span><span>Ads</span><span>WhatsApp</span>
     </div>
 
+    <svg class="funnel-cue" viewBox="0 0 260 76" role="img" aria-label="The channels funnel into one system">
+      <g fill="none" stroke="#FF5B5B" stroke-width="1.5" stroke-linecap="round" opacity=".85">
+        <path d="M16 6 C 74 8, 108 42, 130 60"/>
+        <path d="M73 6 C 100 22, 118 42, 130 60"/>
+        <path d="M130 6 L 130 58"/>
+        <path d="M187 6 C 160 22, 142 42, 130 60"/>
+        <path d="M244 6 C 186 8, 152 42, 130 60"/>
+      </g>
+      <circle cx="130" cy="63" r="6.5" fill="#FF5B5B"/>
+      <circle cx="130" cy="63" r="6.5" fill="none" stroke="#FF5B5B" stroke-width="1.4"><animate attributeName="r" values="6.5;15;15" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0;0" dur="2.8s" repeatCount="indefinite"/></circle>
+    </svg>
     <div class="flow-art">
       <svg class="fa" viewBox="0 0 1000 322" role="img" aria-label="Website, Instagram, Google, ads and WhatsApp all feeding one funnel that answers and books an enquiry">
         <defs>
@@ -904,6 +961,7 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
       <b>Metamorphix India</b>
       <b>Ayurveda Compass</b>
       <b>Tao of Touch</b>
+      <b>Raahat by Binita</b>
     </div>
   </div>
 </div>
@@ -994,15 +1052,16 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
         <span class="mono rise" data-node>Selected work</span>
         <h2 class="rise">Systems already running.</h2>
       </div>
-      <a class="seeall rise" href="/work/">See all five case studies</a>
+      <a class="seeall rise" href="/work/">See all six case studies</a>
     </div>
 
     <div class="wfan" id="wfan">
-      <a class="wcard f0" href="/work/white-lotus.html"><img src="work/assets/wl-hero2.jpg" alt="White Lotus Yoga Center website" loading="lazy"></a>
-      <a class="wcard f1" href="/work/sri-radhika.html"><img src="work/assets/sr-hero2.jpg" alt="Sri Radhika Jewellers website" loading="lazy"></a>
-      <a class="wcard f2" href="/work/metamorphix.html"><img src="work/assets/mx-paths.jpg" alt="Metamorphix India website" loading="lazy"></a>
-      <a class="wcard f-2" href="/work/ayurveda-compass.html"><img src="work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"></a>
-      <a class="wcard f-1" href="/work/tao-of-touch.html"><img src="work/assets/tot-desktop.jpg" alt="Tao of Touch website" loading="lazy"></a>
+      <a class="wcard f0" href="/work/white-lotus.html"><img src="work/assets/wl-hero2.jpg" alt="White Lotus Yoga Center website" loading="lazy"><span class="wcard-cap"><b>White Lotus Yoga Center</b><span class="sect">Pilates and wellness, Sharjah</span></span></a>
+      <a class="wcard f1" href="/work/sri-radhika.html"><img src="work/assets/sr-hero2.jpg" alt="Sri Radhika Jewellers website" loading="lazy"><span class="wcard-cap"><b>Sri Radhika Jewellers</b><span class="sect">Jewellery, Delhi</span></span></a>
+      <a class="wcard f2" href="/work/metamorphix.html"><img src="work/assets/mx-paths.jpg" alt="Metamorphix India website" loading="lazy"><span class="wcard-cap"><b>Metamorphix India</b><span class="sect">Coaching and consulting</span></span></a>
+      <a class="wcard f-2" href="/work/ayurveda-compass.html"><img src="work/assets/ac-desktop.jpg" alt="Ayurveda Compass website" loading="lazy"><span class="wcard-cap"><b>Ayurveda Compass</b><span class="sect">Holistic health, Germany and India</span></span></a>
+      <a class="wcard f-1" href="/work/tao-of-touch.html"><img src="work/assets/tot-desktop.jpg" alt="Tao of Touch website" loading="lazy"><span class="wcard-cap"><b>Tao of Touch</b><span class="sect">Bodywork education</span></span></a>
+      <a class="wcard f3" href="/work/raahat.html"><img src="work/assets/ra-hero.jpg" alt="Raahat by Binita website" loading="lazy"><span class="wcard-cap"><b>Raahat by Binita</b><span class="sect">Holistic healing</span></span></a>
     </div>
 
     <div class="wcap" id="wcap">
@@ -1035,6 +1094,12 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
         <p class="wc-sect">Bodywork education</p>
         <p class="wc-line">A somatics school with 330 students finally got a home, and ads that land on course pages.</p>
         <a class="wc-link" href="/work/tao-of-touch.html">See the case study &rarr;</a>
+      </div>
+      <div class="wc">
+        <h3>Raahat by Binita</h3>
+        <p class="wc-sect">Holistic healing, India and global</p>
+        <p class="wc-line">Logo, brand and website for a healer who works on the root, not the prediction. Instagram in build.</p>
+        <a class="wc-link" href="/work/raahat.html">See the case study &rarr;</a>
       </div>
     </div>
 
@@ -1538,11 +1603,12 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
   function rest(){stop();start();}
   var arrows=document.querySelectorAll('.railnav .arrow');
   for(var a=0;a<arrows.length;a++){
-    (function(b){b.addEventListener('click',function(){go(cur+(+b.getAttribute('data-dir')));rest();});})(arrows[a]);
+    (function(b){b.addEventListener('click',function(){if(window.matchMedia('(max-width:880px)').matches){var c=fan.querySelector('.wcard');var step=c?c.getBoundingClientRect().width+16:300;fan.scrollBy({left:step*(+b.getAttribute('data-dir')),behavior:'smooth'});}else{go(cur+(+b.getAttribute('data-dir')));rest();}});})(arrows[a]);
   }
   cards.forEach(function(c,idx){
     c.addEventListener('click',function(ev){
-      if(idx!==cur){ev.preventDefault();go(idx);rest();}
+      /* desktop fan: click a side card to centre it. On phones (swipe carousel) let the tap open the case study. */
+      if(window.matchMedia('(min-width:881px)').matches && idx!==cur){ev.preventDefault();go(idx);rest();}
     });
   });
   var host=document.querySelector('.work');
