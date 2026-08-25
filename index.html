@@ -164,37 +164,24 @@ header.over .navlinks a:hover{color:var(--paper)}
 /* ---- work fan: parked, moving into the Work section later ---- */
 .fan-wrap{display:none}
 
-/* ============ FLOW (the funnel, assembles on scroll) ============ */
-.flow{background:var(--paper);color:var(--ink);padding:92px 0 104px;text-align:center}
-.flow-kicker{display:block;color:var(--coral);margin-bottom:20px}
-.flow h2{max-width:20ch;margin:0 auto;font-size:clamp(32px,4.6vw,58px);color:var(--ink)}
-.flow-sub{margin:22px auto 0;max-width:48ch;color:var(--ink-soft);font-size:17.5px}
-.flow-art{max-width:1000px;margin:46px auto 0}
-.flow-art svg{width:100%;height:auto;overflow:visible}
-.fa .plain{display:none}
-.chips-m{display:none}
-.funnel-cue{display:none}
-@media(max-width:760px){
-  .fa .rich,.fa .plain{display:none}
-  .chips-m{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:6px auto 0;max-width:340px}
-  .chips-m span{background:#fff;border:1px solid var(--hair);border-radius:999px;padding:9px 16px;
-    font-size:14px;font-weight:500;box-shadow:0 8px 16px -8px rgba(70,42,28,.26)}
-  .flow-art{display:none}
-  .funnel-cue{display:block;width:min(280px,80%);height:auto;margin:16px auto 22px}
-}
-/* legible at rest; .on replays the assembly as an enhancement */
-@keyframes chipIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
-@keyframes linkDraw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
-@keyframes softIn{from{opacity:0}to{opacity:1}}
-.fa .chip{opacity:1}
-.fa .link{stroke-dasharray:100;stroke-dashoffset:0}
-.fa .core,.fa .pulse{opacity:1}
-.fa.on .chip{animation:chipIn .5s backwards}
-.fa.on .link{animation:linkDraw 1.05s cubic-bezier(.4,.6,.2,1) backwards}
-.fa.on .core{animation:softIn .45s .9s backwards}
-.fa.on .pulse{animation:softIn .5s 1.4s backwards}
-@media(prefers-reduced-motion:reduce){
-  .fa .chip,.fa .core,.fa .pulse,.thread{animation:none}}
+/* ============ THE FIX (light riser panel inside .tangle) ============ */
+.tangle-fix{position:relative;z-index:2;background:var(--paper);color:var(--ink);
+  border-radius:34px 34px 0 0;margin-top:14px;padding:60px 0 96px;text-align:center;
+  box-shadow:0 -26px 60px -34px rgba(0,0,0,.6)}
+.fix-kicker{display:block;color:var(--coral-deep);margin-bottom:18px}
+.tangle-fix h2{max-width:20ch;margin:0 auto;font-size:clamp(30px,4.4vw,54px);color:var(--ink);letter-spacing:-.025em}
+.fix-sub{margin:20px auto 0;max-width:46ch;color:var(--ink-soft);font-size:17.5px;text-wrap:pretty}
+/* compact funnel cue: the five channels from the mess, funnelling into one node */
+.funnel-cue{display:block;width:min(320px,78%);height:auto;margin:30px auto 34px}
+.funnel-cue .cl{stroke-dasharray:200;stroke-dashoffset:0}
+.tangle-fix.on .funnel-cue .cl{animation:cueDraw 1s cubic-bezier(.4,.6,.2,1) backwards}
+.tangle-fix.on .funnel-cue .cl:nth-child(1){animation-delay:.04s}
+.tangle-fix.on .funnel-cue .cl:nth-child(2){animation-delay:.12s}
+.tangle-fix.on .funnel-cue .cl:nth-child(3){animation-delay:.20s}
+.tangle-fix.on .funnel-cue .cl:nth-child(4){animation-delay:.28s}
+.tangle-fix.on .funnel-cue .cl:nth-child(5){animation-delay:.36s}
+@keyframes cueDraw{from{stroke-dashoffset:200}to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.funnel-cue .cl,.thread{animation:none!important}}
 .thread{max-width:440px;margin:0 auto;background:#fff;color:var(--ink);border:1px solid var(--hair);
   border-radius:16px;box-shadow:0 26px 50px -24px rgba(70,42,28,.42);overflow:hidden;text-align:left}
 .thread.on{animation:threadIn .6s .3s backwards}
@@ -222,12 +209,13 @@ header.over .navlinks a:hover{color:var(--paper)}
 #spine circle{fill:var(--coral)}
 .spine-host>section{position:relative;z-index:1}
 
-/* ============ PROBLEM (the chaos, dark) ============ */
-.problem{position:relative;background:var(--ink);color:var(--paper);padding:94px 0 100px;overflow:hidden;text-align:center}
-.problem::before{content:'';position:absolute;left:50%;top:38%;width:min(1100px,110vw);height:min(640px,66vw);
+/* ============ THE TANGLE (chaos, dark) → THE FIX (light) ============ */
+.tangle{position:relative;background:var(--ink);color:var(--paper);overflow:hidden}
+.tangle::before{content:'';position:absolute;left:50%;top:24%;width:min(1100px,110vw);height:min(560px,66vw);
   transform:translate(-50%,-50%);pointer-events:none;z-index:0;mix-blend-mode:screen;
   background:radial-gradient(ellipse at 50% 50%,rgba(255,120,105,.20),rgba(255,91,91,.06) 44%,rgba(255,91,91,0) 70%)}
-.problem .wrap{position:relative;z-index:1}
+.tangle-mess{position:relative;z-index:1;padding:92px 0 78px;text-align:center}
+.tangle-mess .wrap{position:relative;z-index:1}
 .mess{position:relative;height:300px;max-width:1000px;margin:0 auto}
 .note{position:absolute;display:flex;align-items:center;gap:14px;background:#fff;color:var(--ink);
   border:1px solid rgba(247,243,238,.12);border-radius:15px;padding:14px 18px;width:max-content;max-width:92%;
@@ -263,13 +251,22 @@ header.over .navlinks a:hover{color:var(--paper)}
   .note .ico{width:33px;height:33px;border-radius:9px}.note .ico svg{width:17px;height:17px}
   .note b{font-size:13.5px}.note span.sub{font-size:12.5px}.note .chip{font-size:9px;padding:4px 8px}
 }
-.problem h2{font-size:clamp(32px,4.7vw,60px);max-width:18ch;margin:40px auto 0;color:var(--paper);
+.tangle-mess h2{font-size:clamp(32px,4.7vw,60px);max-width:18ch;margin:40px auto 0;color:var(--paper);
   letter-spacing:-.03em;position:relative;z-index:2}
-.reveal{font-size:clamp(17px,1.8vw,20px);line-height:1.55;max-width:52ch;margin:24px auto 0}
+.reveal{font-size:clamp(17px,1.8vw,20px);line-height:1.55;max-width:52ch;margin:24px auto 0;color:var(--paper)}
 .reveal .w{color:var(--paper);transition:opacity .18s linear}
 .reveal.dim .w{opacity:.26}
 .punch{margin-top:30px;font-family:'Fraunces',serif;font-style:normal;font-weight:500;
   font-size:clamp(24px,3vw,40px);color:var(--coral);font-variation-settings:'SOFT' 60,'WONK' 1}
+@media(max-width:860px){
+  .tangle-mess{padding:58px 0 24px}
+  .tangle-mess h2{margin-top:30px}
+  .tangle-fix{margin-top:10px;border-radius:24px 24px 0 0;padding:44px 0 74px}
+  .tangle-fix h2{font-size:clamp(28px,7.6vw,40px)}
+  .fix-sub{font-size:16px;max-width:34ch}
+  .funnel-cue{width:min(240px,74%);margin:22px auto 26px}
+  .thread{max-width:none}
+}
 
 /* ============ BUILD ============ */
 .build{padding:100px 0;background:var(--sand)}
@@ -815,8 +812,9 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
   </div>
 </section>
 
-<!-- ================= PROBLEM ================= -->
-<section class="problem">
+<!-- ========= THE TANGLE (problem) -> THE FIX (funnel), merged ========= -->
+<section class="tangle">
+  <div class="tangle-mess">
   <div class="wrap">
     <div class="mess" aria-hidden="true">
       <div class="note n1"><span class="ico" style="background:#1E8E62"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 1 1 21 11.5z"/></svg></span><div><b>WhatsApp</b><span class="sub">12 unread enquiries</span></div></div>
@@ -826,127 +824,42 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
       <div class="note n5"><span class="ico" style="background:#FF5B5B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.9 18a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span><div><b>Enquiry, 11:42pm</b><span class="sub">Still unanswered</span></div><span class="chip">2 days</span></div>
     </div>
 
-    <h2 class="rise" data-node>The pieces exist. Nothing passes anything along.</h2>
-    <p class="reveal">You have a website somewhere. You posted for a few weeks, then stopped. An enquiry came in at 11pm, and it is still sitting there.</p>
+    <h2 class="rise">The pieces exist. Nothing passes anything along.</h2>
+    <p class="reveal">You have a website somewhere. You posted for a few weeks, then stopped. An enquiry came in at 11:42pm, and it is still sitting there.</p>
     <p class="punch rise">Sounds like you?</p>
   </div>
-</section>
+  </div>
 
-<!-- ================= THE FUNNEL ================= -->
-<section class="flow">
-  <div class="wrap">
-    <span class="mono flow-kicker rise">Don’t worry. We’ve got you.</span>
-    <h2 class="rise">Five ways in.<br>One place it lands.</h2>
-    <p class="flow-sub rise">Every channel points at the same system, so an enquiry gets answered and booked whether or not you are at your phone.</p>
+  <div class="tangle-fix">
+    <div class="wrap">
+      <span class="mono fix-kicker rise">Don’t worry. We’ve got you.</span>
+      <h2 class="rise">Five ways in.<br>One place it lands.</h2>
+      <p class="fix-sub rise">Every channel points at the same system, so an enquiry gets answered and booked whether or not you are at your phone.</p>
 
-    <div class="chips-m" aria-hidden="true">
-      <span>Website</span><span>Instagram</span><span>Google</span><span>Ads</span><span>WhatsApp</span>
-    </div>
-
-    <svg class="funnel-cue" viewBox="0 0 260 76" role="img" aria-label="The channels funnel into one system">
-      <g fill="none" stroke="#FF5B5B" stroke-width="1.5" stroke-linecap="round" opacity=".85">
-        <path d="M16 6 C 74 8, 108 42, 130 60"/>
-        <path d="M73 6 C 100 22, 118 42, 130 60"/>
-        <path d="M130 6 L 130 58"/>
-        <path d="M187 6 C 160 22, 142 42, 130 60"/>
-        <path d="M244 6 C 186 8, 152 42, 130 60"/>
-      </g>
-      <circle cx="130" cy="63" r="6.5" fill="#FF5B5B"/>
-      <circle cx="130" cy="63" r="6.5" fill="none" stroke="#FF5B5B" stroke-width="1.4"><animate attributeName="r" values="6.5;15;15" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;0;0" dur="2.8s" repeatCount="indefinite"/></circle>
-    </svg>
-    <div class="flow-art">
-      <svg class="fa" viewBox="0 0 1000 322" role="img" aria-label="Website, Instagram, Google, ads and WhatsApp all feeding one funnel that answers and books an enquiry">
-        <defs>
-          <filter id="cardsh" x="-40%" y="-40%" width="180%" height="200%">
-            <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#46281C" flood-opacity="0.16"/>
-          </filter>
-        </defs>
-
-        <!-- rich channel cards (desktop) -->
-        <g class="rich" font-family="Instrument Sans" text-anchor="middle">
-          <g class="chip" style="transition-delay:.05s">
-            <rect x="15" y="8" width="150" height="104" rx="16" fill="#fff" stroke="rgba(13,27,42,.1)" filter="url(#cardsh)"/>
-            <circle cx="46" cy="30" r="2.4" fill="#D9CCB8"/><circle cx="54" cy="30" r="2.4" fill="#D9CCB8"/><circle cx="62" cy="30" r="2.4" fill="#D9CCB8"/>
-            <rect x="44" y="42" width="62" height="6" rx="3" fill="#EFE7DB"/>
-            <rect x="44" y="52" width="40" height="6" rx="3" fill="#EFE7DB"/>
-            <rect x="44" y="64" width="32" height="11" rx="5.5" fill="#FF5B5B"/>
-            <text x="90" y="98" font-size="13.5" font-weight="500" fill="#0D1B2A">Website</text>
-          </g>
-          <g class="chip" style="transition-delay:.13s">
-            <rect x="217" y="8" width="150" height="104" rx="16" fill="#fff" stroke="rgba(13,27,42,.1)" filter="url(#cardsh)"/>
-            <g fill="#EFE7DB">
-              <rect x="264" y="26" width="16" height="16" rx="3.5"/><rect x="284" y="26" width="16" height="16" rx="3.5"/><rect x="304" y="26" width="16" height="16" rx="3.5"/>
-              <rect x="264" y="46" width="16" height="16" rx="3.5"/><rect x="304" y="46" width="16" height="16" rx="3.5"/>
-            </g>
-            <rect x="284" y="46" width="16" height="16" rx="3.5" fill="#FF5B5B" opacity=".85"/>
-            <text x="292" y="98" font-size="13.5" font-weight="500" fill="#0D1B2A">Instagram</text>
-          </g>
-          <g class="chip" style="transition-delay:.21s">
-            <rect x="425" y="8" width="150" height="104" rx="16" fill="#fff" stroke="rgba(13,27,42,.1)" filter="url(#cardsh)"/>
-            <rect x="452" y="24" width="96" height="18" rx="9" fill="#F7F3EE" stroke="rgba(13,27,42,.08)"/>
-            <circle cx="465" cy="33" r="3.6" fill="none" stroke="#A9A093" stroke-width="1.6"/>
-            <path d="M468 36 l3 3" stroke="#A9A093" stroke-width="1.6" stroke-linecap="round"/>
-            <rect x="452" y="50" width="70" height="6" rx="3" fill="#EFE7DB"/>
-            <g fill="#FF5B5B"><circle cx="455" cy="66" r="2.6"/><circle cx="465" cy="66" r="2.6"/><circle cx="475" cy="66" r="2.6"/><circle cx="485" cy="66" r="2.6"/><circle cx="495" cy="66" r="2.6"/></g>
-            <text x="500" y="98" font-size="13.5" font-weight="500" fill="#0D1B2A">Google</text>
-          </g>
-          <g class="chip" style="transition-delay:.29s">
-            <rect x="633" y="8" width="150" height="104" rx="16" fill="#fff" stroke="rgba(13,27,42,.1)" filter="url(#cardsh)"/>
-            <rect x="660" y="24" width="56" height="15" rx="7.5" fill="rgba(255,91,91,.13)"/>
-            <text x="688" y="35" font-size="9" font-family="IBM Plex Mono" letter-spacing="1" fill="#E84545">SPONSORED</text>
-            <rect x="660" y="47" width="64" height="6" rx="3" fill="#EFE7DB"/>
-            <rect x="660" y="57" width="44" height="6" rx="3" fill="#EFE7DB"/>
-            <path d="M660 76 L676 68 L692 72 L712 60" fill="none" stroke="#FF5B5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="708" y="98" font-size="13.5" font-weight="500" fill="#0D1B2A">Ads</text>
-          </g>
-          <g class="chip" style="transition-delay:.37s">
-            <rect x="835" y="8" width="150" height="104" rx="16" fill="#fff" stroke="rgba(13,27,42,.1)" filter="url(#cardsh)"/>
-            <rect x="864" y="26" width="58" height="19" rx="9.5" fill="#EFE7DB"/>
-            <rect x="898" y="52" width="58" height="19" rx="9.5" fill="#1E8E62"/>
-            <text x="910" y="98" font-size="13.5" font-weight="500" fill="#0D1B2A">WhatsApp</text>
-          </g>
+      <svg class="funnel-cue" viewBox="0 0 260 92" role="img" aria-label="Five channels funnel into one system">
+        <g fill="none" stroke="#FF5B5B" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+          <path class="cl" d="M20 14 C 66 26, 110 52, 130 74"/>
+          <path class="cl" d="M75 14 C 100 30, 120 54, 130 74"/>
+          <path class="cl" d="M130 14 L 130 74"/>
+          <path class="cl" d="M185 14 C 160 30, 140 54, 130 74"/>
+          <path class="cl" d="M240 14 C 194 26, 150 52, 130 74"/>
         </g>
-
-        <!-- plain pills (small screens) -->
-        <g class="plain" font-family="Instrument Sans" font-size="15" font-weight="500" text-anchor="middle">
-          <g class="chip" style="transition-delay:.05s"><rect x="32" y="68" width="116" height="38" rx="19" fill="#fff" stroke="rgba(13,27,42,.13)"/><text x="90" y="93" fill="#0D1B2A">Website</text></g>
-          <g class="chip" style="transition-delay:.13s"><rect x="228" y="68" width="128" height="38" rx="19" fill="#fff" stroke="rgba(13,27,42,.13)"/><text x="292" y="93" fill="#0D1B2A">Instagram</text></g>
-          <g class="chip" style="transition-delay:.21s"><rect x="446" y="68" width="108" height="38" rx="19" fill="#fff" stroke="rgba(13,27,42,.13)"/><text x="500" y="93" fill="#0D1B2A">Google</text></g>
-          <g class="chip" style="transition-delay:.29s"><rect x="666" y="68" width="84" height="38" rx="19" fill="#fff" stroke="rgba(13,27,42,.13)"/><text x="708" y="93" fill="#0D1B2A">Ads</text></g>
-          <g class="chip" style="transition-delay:.37s"><rect x="844" y="68" width="132" height="38" rx="19" fill="#fff" stroke="rgba(13,27,42,.13)"/><text x="910" y="93" fill="#0D1B2A">WhatsApp</text></g>
+        <g>
+          <circle cx="20" cy="12" r="4" fill="#1E8E62"/>
+          <circle cx="75" cy="12" r="4" fill="#C13584"/>
+          <circle cx="130" cy="12" r="4" fill="#0D1B2A"/>
+          <circle cx="185" cy="12" r="4" fill="#B98A2E"/>
+          <circle cx="240" cy="12" r="4" fill="#FF5B5B"/>
         </g>
-
-        <g fill="none" stroke="#FF5B5B" stroke-width="1.7" stroke-linecap="round">
-          <path class="link" pathLength="100" style="transition-delay:.5s"  d="M90 112 C 90 182, 322 212, 486 240"/>
-          <path class="link" pathLength="100" style="transition-delay:.58s" d="M292 112 C 292 180, 406 214, 492 242"/>
-          <path class="link" pathLength="100" style="transition-delay:.66s" d="M500 112 L 500 236"/>
-          <path class="link" pathLength="100" style="transition-delay:.74s" d="M708 112 C 708 180, 594 214, 508 242"/>
-          <path class="link" pathLength="100" style="transition-delay:.82s" d="M910 112 C 910 182, 678 212, 514 240"/>
-        </g>
-
-        <g class="pulse" fill="#FF5B5B">
-          <circle r="4"><animateMotion dur="2.6s" repeatCount="indefinite" path="M90 112 C 90 182, 322 212, 486 240"/></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin="0.5s" repeatCount="indefinite" path="M292 112 C 292 180, 406 214, 492 242"/></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin="1s" repeatCount="indefinite" path="M500 112 L 500 236"/></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin="1.5s" repeatCount="indefinite" path="M708 112 C 708 180, 594 214, 508 242"/></circle>
-          <circle r="4"><animateMotion dur="2.6s" begin="2s" repeatCount="indefinite" path="M910 112 C 910 182, 678 212, 514 240"/></circle>
-        </g>
-
-        <g class="core">
-          <circle cx="500" cy="252" r="17" fill="none" stroke="#FF5B5B" stroke-width="1.5" opacity=".55">
-            <animate attributeName="r" values="17;38;38" dur="2.8s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values=".55;0;0" dur="2.8s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="500" cy="252" r="17" fill="#FF5B5B"/>
-          <path d="M500 269 L 500 314" stroke="#FF5B5B" stroke-width="1.7" fill="none"/>
-        </g>
+        <circle cx="130" cy="78" r="7" fill="#FF5B5B"/>
+        <circle cx="130" cy="78" r="7" fill="none" stroke="#FF5B5B" stroke-width="1.4"><animate attributeName="r" values="7;17;17" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0;0" dur="2.8s" repeatCount="indefinite"/></circle>
       </svg>
-    </div>
 
-    <div class="thread" id="thread">
-      <div class="tline"><span class="tdot" style="background:#FF5B5B"></span><b>New enquiry</b><span class="tmeta">11:42 pm</span></div>
-      <div class="tline"><span class="tdot" style="background:#1E8E62"></span><b>Replied in 40 seconds</b><span class="tmeta">automatic</span></div>
-      <div class="tline"><span class="tdot" style="background:#0D1B2A"></span><b>Call booked, Thursday</b><span class="tmeta">while you slept</span></div>
+      <div class="thread" id="thread">
+        <div class="tline"><span class="tdot" style="background:#FF5B5B"></span><b>That same 11:42 pm enquiry</b><span class="tmeta">picked up</span></div>
+        <div class="tline"><span class="tdot" style="background:#1E8E62"></span><b>Replied in 40 seconds</b><span class="tmeta">automatic</span></div>
+        <div class="tline"><span class="tdot" style="background:#0D1B2A"></span><b>Call booked, Thursday</b><span class="tmeta">while you slept</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1456,20 +1369,17 @@ footer{background:#0A1622;color:var(--cream-soft);padding:40px 0}
   setTimeout(function(){m.classList.add('on');},1700); // failsafe: never leave the cards hidden
 })();
 
-/* ---- the funnel assembles when you reach it ---- */
+/* ---- the fix panel: funnel-cue draws, the thread resolves ---- */
 (function(){
-  var art=document.querySelector('.fa');
-  if(!art)return;
+  var fix=document.querySelector('.tangle-fix');
+  if(!fix)return;
+  function reveal(){fix.classList.add('on');
+    var th=document.getElementById('thread'); if(th)th.classList.add('on');}
   var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){
-      art.classList.add('on');
-      var th=document.getElementById('thread'); if(th)th.classList.add('on');
-      io.disconnect();
-    }});
-  },{threshold:.25});
-  io.observe(art);
-  setTimeout(function(){art.classList.add('on');
-    var th=document.getElementById('thread'); if(th)th.classList.add('on');},2600);
+    es.forEach(function(e){if(e.isIntersecting){reveal();io.disconnect();}});
+  },{threshold:.2});
+  io.observe(fix);
+  setTimeout(reveal,2600); // failsafe: never leave the thread hidden
 })();
 
 /* ---- the line: broken while nothing is connected, solid once we build ---- */
