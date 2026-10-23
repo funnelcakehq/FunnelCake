@@ -29,9 +29,9 @@ RE (confidential): Phoenix metro · live IDX/MLS · seller valuation/cash-offer 
 ## Decisions (user answers)
 - Names OK for WL/SRJ/MX (+ AC/ToT already public); realty stays confidential
 - ToT cleanup done → include normally
-- CTA links stay placeholder "#" (Harshita wires)
+- CTA links stay placeholder "#" (wired at publish)
 - Quotes: I draft them where impactful (WL, SRJ, AC-Ulrike) with visible AWAITING CLIENT SIGN-OFF chip; delete quote section on MX/ToT/RE
 - Push on: screenshots in device frames, visual design, copy, scroll animations, mobile
-- Deliverable: case-studies/ folder (index + 6 pages + assets + README) → zip for Harshita; she reskins/wires/publishes
+- Deliverable: case-studies/ folder (index + 6 pages + assets + README) → zip for handoff; reskin, wire and publish
 
 ## Old pages (uploads/files/funnelcake-case-studies/) = v1, keep untouched for reference

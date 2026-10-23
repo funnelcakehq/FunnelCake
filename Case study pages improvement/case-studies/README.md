@@ -1,4 +1,4 @@
-# FunnelCake Case Studies v2 — Handoff Notes for Harshita
+# FunnelCake Case Studies v2 — Handoff Notes
 
 7 pages: `index.html` + 6 case studies, plus `assets/` (all screenshots, already in place). Fully self-contained — Poppins from Google Fonts, everything else local. Open `index.html` to preview; all pages cross-link.
 
